@@ -1,4 +1,6 @@
 # Assorted Snippits
+
+**Hack any paid WiFi hotspot in about 30 seconds**
 ```
 ifconfig en1 | grep ether
 arp -a
