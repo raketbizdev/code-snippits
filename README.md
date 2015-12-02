@@ -15,4 +15,10 @@ sudo ifconfig en1 ether [mac address to spoof]
 * `git diff` shows the difference between the working directory and the staging area
 * `git commit` permanently stores file changes from the staging area in the repository
 * `git log` shows a list of all previous commits
+* `git reset --hard` Revert changes to modified files.
+* `git clean -fd` Remove all untracked files and directories.
+* `git checkout -b topic-branch` # To create New Branch
+* `git branch` # To check branch which you are in
+* `git checkout master` # To return to master branch or change another branch
+
 
