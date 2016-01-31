@@ -20,11 +20,10 @@ sudo ifconfig en1 ether [mac address to spoof]
 * `git checkout -b topic-branch` # To create New Branch
 * `git branch` # To check branch which you are in
 * `git checkout master` # To return to master branch or change another branch
-* 
 
 # Create Multiple Skype in Mac
 
 * Open Terminal
-* type this in terminal ````$ sudo /Applications/Skype.app/Contents/MacOS/Skype /secondary```
+* type this in terminal ```$ sudo /Applications/Skype.app/Contents/MacOS/Skype /secondary```
 
 
