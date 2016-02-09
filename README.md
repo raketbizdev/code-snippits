@@ -26,4 +26,9 @@ sudo ifconfig en1 ether [mac address to spoof]
 * Open Terminal
 * type this in terminal ```$ sudo /Applications/Skype.app/Contents/MacOS/Skype /secondary```
 
+# Compress image on wordpress via functions
+
+* Open function.php
+* add this code ```add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );```
+
 
