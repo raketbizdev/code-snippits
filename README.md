@@ -31,4 +31,21 @@ sudo ifconfig en1 ether [mac address to spoof]
 * Open function.php
 * add this code ```add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );```
 
+# Here are all the Rails 4 (ActiveRecord migration) datatypes:
+```
+  :binary
+  :boolean
+  :date
+  :datetime
+  :decimal
+  :float
+  :integer
+  :primary_key
+  :references
+  :string
+  :text
+  :time
+  :timestamp
+
+```
 
