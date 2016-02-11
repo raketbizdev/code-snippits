@@ -46,6 +46,5 @@ sudo ifconfig en1 ether [mac address to spoof]
   :text
   :time
   :timestamp
-
 ```
 
