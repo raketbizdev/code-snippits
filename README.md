@@ -74,3 +74,11 @@ sudo ifconfig en1 ether [mac address to spoof]
 * `%%` - Literal “%” character
 * `%e` - Day of the month, without leading zero (1..31)
 * `%-I %-d` - You can remove leading Zeros this way as well. By just adding a - symbol.
+
+# Outpting any files using only terminal 
+
+eg: JSON to CSV
+
+`curl -u 60783dd23ef:X https://your-domain.com/v1/filename.json -O`
+or 
+`curl -u 60783dd23ef:X https://your-domain.com/v1/filename.json -o mailbox.csv`
