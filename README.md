@@ -83,5 +83,5 @@ eg: JSON to CSV
 or 
 `curl -u 60783dd23ef:X https://your-domain.com/v1/filename.json -o mailbox.csv`
 
-# downloading lots of files
-`for((i=1;i<=8;i++)); do curl -u c84b5d9e88faf6d71f807fd9c44d6e459c129e6e:Tolman8er https://api.helpscout.net/v1/mailboxes/28303/conversations.json?page=$i -o mailboxes-28303-conversations-page-$i.json; done`
+# downloading lots of files via terminal
+`for((i=1;i<=8;i++)); do curl -u xxxxxx:pass //your-domain.com/v1/filename.json?page=$i -o mailboxes-28303-conversations-page-$i.json; done`
