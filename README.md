@@ -108,6 +108,7 @@ strpos(...)
 lower(...)
 upper(...)
 contains(...)
-
+order by
+SELECT, WHERE
 AND, OR, NOT, IN, ><=, +-*/  
 ```
