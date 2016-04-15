@@ -85,3 +85,12 @@ or
 
 # downloading lots of files via terminal
 `for((i=1;i<=8;i++)); do curl -u xxxxxx:pass //your-domain.com/v1/filename.json?page=$i -o mailboxes-28303-conversations-page-$i.json; done`
+
+# FQL facebook search by group name
+
+```sql
+SELECT gid, name, privacy, website, email
+FROM   group
+WHERE  CONTAINS("jobs")
+AND    strpos(lower(name),lower("jobs")) >=0
+```
