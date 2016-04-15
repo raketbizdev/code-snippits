@@ -94,3 +94,20 @@ FROM   group
 WHERE  CONTAINS("jobs")
 AND    strpos(lower(name),lower("jobs")) >=0
 ```
+
+# Facebook FQL Operator
+
+```
+me()
+now()
+rand()
+strlen(...)
+concat(...)
+substr(...)
+strpos(...)
+lower(...)
+upper(...)
+contains(...)
+
+AND, OR, NOT, IN, ><=, +-*/  
+```
