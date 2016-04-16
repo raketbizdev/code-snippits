@@ -4,7 +4,6 @@
 * check your computer if you have a a nokogiri installed if not install it first
 * Create a file name `lazada_scraper.rb` any name will do
 * copy the code below
-* 
 
 ```ruby
 require 'open-uri'
