@@ -128,3 +128,14 @@ page.css('td[style="text-align:left;"]').each do |line|
 	puts line.text
 end
 ```
+
+# Rails tips
+
+```ruby
+# Checking rake task
+rake db -T -A
+
+# create a new rake task 
+rails generate task scraper scrape  destroy_all_posts
+
+# where **scraper** is the name of the rake **scrape**  and **destroy_all_posts** are the name of the task being rake.
