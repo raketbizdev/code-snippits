@@ -121,6 +121,8 @@ require 'nokogiri'
 url = 'https://en.wikipedia.org/wiki/List_of_current_NBA_team_rosters'
 page = Nokogiri::HTML(open(url))
 
+// page.css('a') to get all a tags
+// page.css('li.toclelev-3') to get content within li
 page.css('td[style="text-align:left;"]').each do |line|
 	puts line.text
 end
