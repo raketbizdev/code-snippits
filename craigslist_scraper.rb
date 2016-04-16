@@ -2,7 +2,7 @@ require 'open-uri'
 require 'json'
 
 # Set Api Token
-auth_token = '4d942c27c448b9b2e4a78f4b519dca5e'
+auth_token = 'YOUR_API_KEY_FROM_3TAPS'
 polling_url = 'http://polling.3taps.com/poll'
 
 # Specify Request Parameters
