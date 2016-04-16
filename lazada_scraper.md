@@ -1,5 +1,11 @@
 # Lazada Product Scraper
 
+**Instructions**
+* check your computer if you have a a nokogiri installed if not install it first
+* Create a file name `lazada_scraper.rb` any name will do
+* copy the code below
+* 
+
 ```ruby
 require 'open-uri'
 require 'nokogiri'
@@ -16,7 +22,7 @@ page.css('span.pages a[href]').each do |line|
 	page_num << line.text.strip
 end
 	# max_page = page_num.max
-	max_page = 5
+	max_page = 5 # this are number of pages to be scrape mos of the time you choose the max page number
 	name = []
 	price = []
 	rating = []
