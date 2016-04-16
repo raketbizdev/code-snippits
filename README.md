@@ -130,7 +130,7 @@ end
 ```
 
 # Rails tips
-
+this will be run in termminal window
 ```ruby
 # Checking rake task
 rake db -T -A
