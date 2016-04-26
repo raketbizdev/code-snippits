@@ -1,10 +1,11 @@
 # Gather server information within a second
 
-Create a file called systeminfo.sh
-
+**Create a file called systeminfo.sh**
+```
 # touch systeminfo.sh
-copy the below code to above created file
-
+```
+**copy the below code to above created file**
+```
 #!/bin/bash
 ## Purpose: Collecting system Information Gather server information within a second
 ## Author Name: Ankam Ravi Kumar
@@ -93,21 +94,23 @@ echo -e '\n' >> $FILE
 echo "Running Services" >> $FILE
 service --status-all |grep running. |awk '{ print $1,$5}' >> $FILE
 /bin/mail -s "Linux Asset Inventory `hostname`" $MAILIST < $FILE
-run the shell script file using below command
+```
 
+**run the shell script file using below command**
+```
 # sh systeminfo.sh
+```
+
 if you would like to run the same an multiple servers we have to create password less authentication first See Guide Here
-
 then use below to run in multiple server
-
 Write list of server in one file  example say /tmp/hostlist.txt
-
 now create script file and execute
-
+```
 touch multiservers.sh
+```
+**Copy below code to above created file**
 
-Copy below code to above created file
-
+```
 #!/bin/bash
 ## Date: 25th April 2016
 ## Purpose: Collecting Multiple Servers information yet a time Gather server information within a second
@@ -122,6 +125,9 @@ else
 echo "$1 not found"
 fi
 fi
-Now execute file using below command Gather server information within a second
+```
+**Now execute file using below command Gather server information within a second**
 
+```
 # sh multiservers.sh
+```
