@@ -8,10 +8,9 @@
 ```
 #!/bin/bash
 ## Purpose: Collecting system Information Gather server information within a second
-## Author Name: Ankam Ravi Kumar
-## Date: 25th Apr 2016
-## Website: http://arkit.co.in
-MAILIST=aravikumar48@gmail.com
+## Author Name: Youre Name
+## Website: http://www.freelancerdad.com
+MAILIST=myemail@domain.com
 DOMAIN=domain
 TEMP=/tmp/temp
 FILE=/tmp/asset/info.txt
@@ -114,8 +113,8 @@ touch multiservers.sh
 #!/bin/bash
 ## Date: 25th April 2016
 ## Purpose: Collecting Multiple Servers information yet a time Gather server information within a second
-## Author: Ankam Ravi Kumar
-## WebSite: http://www.arkit.co.in/
+## Author Name: Youre Name
+## Website: http://www.freelancerdad.com
 if [ "$#" = 0 ]; then
  echo "Usage: sh multiserver.sh file"
 else if [ -f "$1" ]; then
