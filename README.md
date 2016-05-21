@@ -186,7 +186,7 @@ then
 
 # Rake Db Reference 3.2 +
 
-```
+
 **db:create** creates the database for the current env
 **db:create:all** creates the databases for all envs
 **db:drop drops** the database for the current env
@@ -204,4 +204,4 @@ then
 **db:reset** runs db:drop db:setup
 **db:migrate:redo** runs (db:migrate:down db:migrate:up) or (db:rollback db:migrate) depending on the specified migration
 **db:migrate:reset** runs db:drop db:create db:migrate
-```
+
