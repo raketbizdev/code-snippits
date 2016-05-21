@@ -170,12 +170,8 @@ and add this
 ```ruby
 class RenameNameToFirstNameInOrders < ActiveRecord::Migration
 
-  def up
+  def change
     rename_column :orders, :name, :first_name
-  end
-
-  def down
-    rename_column :orders, :first_name, :name
   end
 
 end
