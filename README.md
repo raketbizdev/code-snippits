@@ -153,9 +153,9 @@ rake db:schema:load     # Load a schema.rb file into the database
 rake db:seed            # Load the seed data from db/seeds.rb
 rake db:setup           # Create the database, load the schema, and initialize with the seed data (use db:reset to also drop the db first)
 rake db:structure:dump  # Dump the database structure to db/structure.sql
-rake db:version         # Retrieves the current schema version number```
-
-#  Migration Rails Tips
+rake db:version         # Retrieves the current schema version number
+```
+# Migrations Tips
 
 **Remove Column**
 
