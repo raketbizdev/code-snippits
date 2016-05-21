@@ -131,12 +131,12 @@ end
 
 # Rails tips
 this will be run in termminal window
-```ruby
+
 # Checking rake task
-rake db -T -A
+`rake db -T -A`
 
 # create a new rake task 
-rails generate task scraper scrape  destroy_all_posts
+`rails generate task scraper scrape  destroy_all_posts`
 
 # where **scraper** is the name of the rake **scrape**  and **destroy_all_posts** are the name of the task being rake.
 
@@ -155,6 +155,7 @@ rake db:setup           # Create the database, load the schema, and initialize w
 rake db:structure:dump  # Dump the database structure to db/structure.sql
 rake db:version         # Retrieves the current schema version number
 ```
+
 # Migrations Tips
 
 **Remove Column**
