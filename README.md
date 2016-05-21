@@ -153,10 +153,13 @@ rake db:schema:load     # Load a schema.rb file into the database
 rake db:seed            # Load the seed data from db/seeds.rb
 rake db:setup           # Create the database, load the schema, and initialize with the seed data (use db:reset to also drop the db first)
 rake db:structure:dump  # Dump the database structure to db/structure.sql
-rake db:version         # Retrieves the current schema version number
-```
+rake db:version         # Retrieves the current schema version number```
 
-# Migration Rails Tips
+#  Migration Rails Tips
+
+**Remove Column**
+
+`rails g migration RemoveColumnFromDatabaseTable 'first_name:string'`
 
 **Rename Column**
 
@@ -167,6 +170,7 @@ Create a Migration
 after that go to `db/migrate/20160521114448_rename_name_to_first_name_in_orders.rb`
 
 and add this
+
 ```ruby
 class RenameNameToFirstNameInOrders < ActiveRecord::Migration
 
