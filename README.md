@@ -168,15 +168,17 @@ after that go to `db/migrate/20160521114448_rename_name_to_first_name_in_orders.
 
 and add this
 ```ruby
-	class RenameBreedToBreedNameInCats < ActiveRecord::Migration
-	  def up
-	    rename_column :cats, :breed, :breed_name
-	  end
-	
-	  def down
-	    rename_column :cats, :breed_name, :breed
-	  end
-	end
+class RenameNameToFirstNameInOrders < ActiveRecord::Migration
+
+  def up
+    rename_column :orders, :name, :first_name
+  end
+
+  def down
+    rename_column :orders, :first_name, :name
+  end
+
+end
 ```
 
 then 
