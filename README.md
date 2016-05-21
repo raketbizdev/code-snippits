@@ -206,3 +206,19 @@ then
 * `db:migrate:redo` runs (db:migrate:down db:migrate:up) or (db:rollback db:migrate) depending on the specified migration
 * `db:migrate:reset` runs db:drop db:create db:migrate
 
+
+# Update Database table using seed.rb
+
+```ruby
+my_account_1 = Account.find_or_initialize_by(operator_id: "1")
+
+my_account_1.update(
+			operator_logo: '', 
+			operator_name: 'Ruel Nopal', 
+			business_name: 'RNopal Ltd.', 
+			bus_name: 'Super Line', 
+			business_address: 'Pasig City', 
+			operator_id: '1',
+			telephone: '7654321', 
+			mobile: '0987654321')
+```
