@@ -155,3 +155,8 @@ rake db:setup           # Create the database, load the schema, and initialize w
 rake db:structure:dump  # Dump the database structure to db/structure.sql
 rake db:version         # Retrieves the current schema version number
 ```
+
+# Migration Rails Tips
+
+**Rename Column**
+rails g migration RenameNameToFirstNameInOrders
