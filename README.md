@@ -222,3 +222,7 @@ my_account_1.update(
 			telephone: '7654321', 
 			mobile: '0987654321')
 ```
+# Uploading files from local computer to remote location
+```
+scp your-files.zip root@xxx.x.xxx.xxx:/your/destination/folder
+```
