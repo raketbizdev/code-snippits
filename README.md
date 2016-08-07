@@ -226,3 +226,8 @@ my_account_1.update(
 ```
 scp your-files.zip root@xxx.x.xxx.xxx:/your/destination/folder
 ```
+# How to Change the number of icons in launchpad or Application
+```
+defaults write com.apple.dock springboard-rows -int 10
+defaults write com.apple.dock springboard-columns -int 10
+```
