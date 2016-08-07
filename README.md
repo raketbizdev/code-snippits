@@ -227,7 +227,17 @@ my_account_1.update(
 scp your-files.zip root@xxx.x.xxx.xxx:/your/destination/folder
 ```
 # How to Change the number of icons in launchpad or Application
+
+By default there are 7×5 icons (35 icons in total). You can change this to anything you want with a couple of simple commands in the terminal.
+
+
+To show 100 icons (10×10), open terminal and type
 ```
 defaults write com.apple.dock springboard-rows -int 10
 defaults write com.apple.dock springboard-columns -int 10
+```
+To show 50 icons (5×10), open terminal and type
+```
+defaults write com.apple.dock springboard-rows -int 10
+defaults write com.apple.dock springboard-columns -int 5
 ```
