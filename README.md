@@ -241,3 +241,58 @@ To show 50 icons (5×10), open terminal and type
 defaults write com.apple.dock springboard-rows -int 10
 defaults write com.apple.dock springboard-columns -int 5
 ```
+# How to see files in linux command
+
+a] `ls command` – list directory contents.
+
+b] `du command` – estimate file space usage.
+
+c] `stat command` – display file or file system status.
+
+To determine the size of a file called /bin/grep, enter:
+
+```
+ls -l /bin/grep
+```
+output
+```
+-rwxr-xr-x 1 root root 175488 May 13  2012 /bin/grep
+```
+In the above output example, the `175488` is the size of the file. For a more user friendly output, pass the -h option to the ls command:
+
+```
+ls -lh /bin/grep
+```
+output
+```
+-rwxr-xr-x 1 root root 172K May 13  2012 /bin/grep
+```
+
+In the above output example, the 172K is the size of the file. The `du command` provides the same output in a more user friendly way and it hides all other details too:
+
+```
+du -h /bin/grep
+```
+output
+
+```
+172K	/bin/grep
+```
+Finally, `stat command` also provide file size:
+
+```
+stat /bin/grep
+```
+
+output
+
+```
+stat /bin/grep
+  File: `/bin/grep'
+  Size: 175488    	Blocks: 344        IO Block: 4096   regular file
+Device: 900h/2304d	Inode: 5505033     Links: 1
+Access: (0755/-rwxr-xr-x)  Uid: (    0/    root)   Gid: (    0/    root)
+Access: 2013-06-10 01:31:37.520022359 +0530
+Modify: 2012-05-13 18:17:28.000000000 +0530
+Change: 2013-05-17 02:16:17.138033825 +0530
+```
