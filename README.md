@@ -297,3 +297,11 @@ Modify: 2012-05-13 18:17:28.000000000 +0530
 Change: 2013-05-17 02:16:17.138033825 +0530
 ```
 source: http://www.cyberciti.biz/faq/how-to-see-file-size-on-linux-unix/
+
+# How to limit page view wordpress
+```php
+// Exit if accessed directly
+if ( !defined( 'ABSPATH' ) ) {
+	exit;
+}
+```
