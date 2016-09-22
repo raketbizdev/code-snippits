@@ -1,9 +1,9 @@
 # Configure your volume
 
 To configure your volume, run the following commands on your Droplet.
-
+```
 ssh root@000.111.222.33
-
+```
 To format the volume, copy and paste the text below:
 Format the volume with ext4 **Warning: This will erase all data on the volume. Only run this command on a volume with no existing data.**
 ```
