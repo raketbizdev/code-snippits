@@ -305,3 +305,11 @@ if ( !defined( 'ABSPATH' ) ) {
 	exit;
 }
 ```
+# How to Force Backup WHM
+```
+/usr/local/cpanel/bin/backup --force
+```
+to monitor
+```
+tail -f /usr/local/cpanel/logs/cpbackup/{id}.logs
+```
