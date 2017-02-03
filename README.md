@@ -313,3 +313,10 @@ to monitor
 ```
 tail -f /usr/local/cpanel/logs/cpbackup/{id}.logs
 ```
+# How to add php code inside terminal
+
+**make sure php-cli is install**
+
+```
+$ echo "<?php phpinfo(); ?>" >> info.php
+```
