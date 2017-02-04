@@ -320,3 +320,8 @@ tail -f /usr/local/cpanel/logs/cpbackup/{id}.logs
 ```
 $ echo "<?php phpinfo(); ?>" >> info.php
 ```
+# Find a string inside files ain all folders and its sub folder and list it in terminal
+good for finding malware
+```
+grep -lr 'kdzooma' * >> list.txt
+```
