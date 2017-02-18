@@ -325,3 +325,7 @@ good for finding malware
 ```
 grep -lr 'kdzooma' * >> list.txt
 ```
+# Remove __MACOSX/ in folder when zipping
+```
+zip -d your-archive.zip "__MACOSX*"
+```
