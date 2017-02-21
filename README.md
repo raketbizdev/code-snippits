@@ -329,3 +329,7 @@ grep -lr 'kdzooma' * >> list.txt
 ```
 zip -d your-archive.zip "__MACOSX*"
 ```
+# How to flush Cache in Mac using terminal
+```
+sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed
+```
