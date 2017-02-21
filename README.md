@@ -331,5 +331,12 @@ zip -d your-archive.zip "__MACOSX*"
 ```
 # How to flush Cache in Mac using terminal
 ```
-sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed
+$ sudo dscacheutil -flushcache;sudo killall -HUP mDNSResponder; say cache flushed
 ```
+# Find files in terminal
+```
+$ find . -type f -name "dns"
+```
+Find folder in terminal
+```
+# find / -name "dns"
