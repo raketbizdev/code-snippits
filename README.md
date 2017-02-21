@@ -339,4 +339,9 @@ $ find . -type f -name "dns"
 ```
 Find folder in terminal
 ```
-# find / -name "dns"
+$ find / -name "dns"
+```
+# list of all DNS record in WHM/cpanel
+``
+$ cd /var/named
+```
