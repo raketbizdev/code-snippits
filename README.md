@@ -342,6 +342,15 @@ Find folder in terminal
 $ find / -name "dns"
 ```
 # list of all DNS record in WHM/cpanel
-``
+```
 $ cd /var/named
+```
+# How to to dump sql in terminal
+```
+
+#Dumping single db table
+$ mysqldump --single-transaction -u db_user -p db_name db_table_name > sqldump.sql
+
+#Dumping single database
+$ mysqldump --single-transaction -u db_user -p db_name > sqldump.sql
 ```
