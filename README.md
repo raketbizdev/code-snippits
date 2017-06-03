@@ -354,3 +354,14 @@ $ mysqldump --single-transaction -u db_user -p db_name db_table_name > sqldump.s
 #Dumping single database
 $ mysqldump --single-transaction -u db_user -p db_name > sqldump.sql
 ```
+
+# Hide Desktop Icon for Mac
+
+```
+$ defaults write com.apple.finder CreateDesktop -bool false;killall Finder
+```
+# Show Desktop Icon For Mac 
+
+```
+Type in defaults write com.apple.finder CreateDesktop -bool true;killall Finder
+```
