@@ -365,3 +365,7 @@ $ defaults write com.apple.finder CreateDesktop -bool false;killall Finder
 ```
 Type in defaults write com.apple.finder CreateDesktop -bool true;killall Finder
 ```
+# Clean All Users Trash
+```
+find /home*/*/.trash/* -exec rm -rf {} \;
+```
