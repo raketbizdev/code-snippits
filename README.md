@@ -251,6 +251,23 @@ c] `stat command` – display file or file system status.
 
 To determine the size of a file called /bin/grep, enter:
 
+To Determine all storage size
+```
+df -h
+```
+output
+```
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/vda1        59G   44G   13G  77% /
+devtmpfs        3.9G     0  3.9G   0% /dev
+tmpfs           3.9G     0  3.9G   0% /dev/shm
+tmpfs           3.9G  401M  3.5G  11% /run
+tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
+/dev/sda         99G   30G   64G  32% /home1
+/dev/loop0      1.9G  3.2M  1.8G   1% /tmp
+tmpfs           783M     0  783M   0% /run/user/0
+```
+
 ```
 ls -l /bin/grep
 ```
