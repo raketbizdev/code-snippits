@@ -268,6 +268,39 @@ tmpfs           3.9G     0  3.9G   0% /sys/fs/cgroup
 tmpfs           783M     0  783M   0% /run/user/0
 ```
 
+Determine Current Folder size
+
+```
+du -sh *
+```
+
+output
+```
+4.0K	backup
+0	bin
+229M	boot
+44K	cldeploy
+0	dev
+43M	etc
+0	lib
+0	lib64
+16K	lost+found
+4.0K	media
+4.0K	mnt
+289M	opt
+0	proc
+4.0K	razor-agent.log
+9.3M	root
+73M	run
+0	sbin
+0	scripts
+4.0K	srv
+0	sys
+128K	tmp
+11G	usr
+c2.5G	var
+```
+
 ```
 ls -l /bin/grep
 ```
