@@ -419,3 +419,43 @@ Type in defaults write com.apple.finder CreateDesktop -bool true;killall Finder
 ```
 find /home*/*/.trash/* -exec rm -rf {} \;
 ```
+
+# Upload image in Wordpress frontend using Advance Custom field (ACF)
+```php
+if ( ! function_exists( 'wp_handle_upload' ) ) {
+    require_once( ABSPATH . 'wp-admin/includes/file.php' );
+    require_once( ABSPATH . 'wp-admin/includes/image.php' );
+}
+
+//Upload company logo
+$upload_overrides = array( 'test_form' => false );
+// From File field
+$organizer_img_upload = $_FILES['organizer_img_upload'];
+$organizer_img_file_return = wp_handle_upload( $organizer_img_upload, $upload_overrides );
+
+
+
+//File
+if ($organizer_img_file_return) {
+	$wp_upload_dir = wp_upload_dir();
+	$attachment = array(
+	'guid' => $wp_upload_dir['url'].'/'.basename($organizer_img_file_return['file']),
+	'post_mime_type' => $organizer_img_file_return['type'],
+	'post_title' => preg_replace('/\.[^.]+$/', '', basename($organizer_img_file_return['file'])),
+	'post_content' => '',
+	'post_status' => 'inherit'
+	);
+	$attach_id = wp_insert_attachment($attachment, $organizer_img_file_return['file']);
+
+	// Make sure that this file is included, as wp_generate_attachment_metadata() depends on it.
+	require_once( ABSPATH . 'wp-admin/includes/image.php' );
+
+	// Generate the metadata for the attachment, and update the database record.
+	$attach_data = wp_generate_attachment_metadata( $attach_id, $organizer_img_file_return['file'] );
+	wp_update_attachment_metadata( $attach_id, $attach_data );
+
+	
+	Add ACF image
+	update_field('company_logo', $attach_id, $post_id);
+}
+```
