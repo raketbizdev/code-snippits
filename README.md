@@ -424,7 +424,6 @@ find /home*/*/.trash/* -exec rm -rf {} \;
 ```php
 if ( ! function_exists( 'wp_handle_upload' ) ) {
     require_once( ABSPATH . 'wp-admin/includes/file.php' );
-    require_once( ABSPATH . 'wp-admin/includes/image.php' );
 }
 
 //Upload company logo
