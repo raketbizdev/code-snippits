@@ -435,7 +435,7 @@ $organizer_img_file_return = wp_handle_upload( $organizer_img_upload, $upload_ov
 
 
 
-//File
+//file upload and get image id
 if ($organizer_img_file_return) {
 	$wp_upload_dir = wp_upload_dir();
 	$attachment = array(
@@ -455,7 +455,7 @@ if ($organizer_img_file_return) {
 	wp_update_attachment_metadata( $attach_id, $attach_data );
 
 	
-	Add ACF image
+	// Add ACF image field
 	update_field('company_logo', $attach_id, $post_id);
 }
 ```
