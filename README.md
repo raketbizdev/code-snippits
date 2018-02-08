@@ -458,3 +458,13 @@ if ($organizer_img_file_return) {
 	update_field('company_logo', $attach_id, $post_id);
 }
 ```
+# How to solve inner page 404 error ubunto
+1. go to `cd /etc/apache2/sites-available` find your virtualhost
+2. make sure this  code is present
+```
+	<Directory /var/www/yourdomain.com/public_html>
+            Options Indexes FollowSymLinks
+            AllowOverride All
+            Require all granted
+        </Directory>
+```
