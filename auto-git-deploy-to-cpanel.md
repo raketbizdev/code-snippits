@@ -1,4 +1,4 @@
-Using cPanel to Host Your Git Repository and Deploy Automatically
+# Use cPanel to Host Your Git Repository and Deploy Automatically
 Below are the variables for the examples.  Change these to suit your needs/preference.
 
 The hostname is:  your.host.name
@@ -10,8 +10,8 @@ shortcut  is what I will call the optional ssh shortcut.
 ~/Sites is your local development directory (so ~/Sites/localname will be the full path to your local Git.)
  
 
-Step 0: Create an SSH key on your local machine.
-Step 1: Add your SSH public key to the cPanel account.
+### Step 0: Create an SSH key on your local machine.
+### Step 1: Add your SSH public key to the cPanel account.
 In the “Security” section click on SSH Shell Access
 Click “Manage SSH Keys”
 Click “Import Key”
@@ -19,7 +19,7 @@ Copy and paste the key into the public key text box.  (Hint: on a Mac, use this 
 Click “Import”
 Go back to the Manage SSH Keys page and click “Manage Authorization”.
 Click “Authorize”.
-Step 2: Set up the remote Git repository.
+### Step 2: Set up the remote Git repository.
 Log into the remote server via SSH…
 ```
 ssh -p222 accountname@your.host.name
@@ -49,7 +49,7 @@ Change permissions on that same file…
 ```
 chmod +x hooks/post-receive;
 ```
-Step 3: Add the remote Git repo.
+### Step 3: Add the remote Git repo.
 Now, back on the local machine move to your local repository (or create one if need be)…
 ```
 cd ~/Sites/localname
