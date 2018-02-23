@@ -20,9 +20,9 @@ Go back to the Manage SSH Keys page and click “Manage Authorization”.
 Click “Authorize”.
 Step 2: Set up the remote Git repository.
 Log into the remote server via SSH…
-
+```
 ssh -p222 accountname@your.host.name
-
+```
 Hint:  I like to set up shortcuts in my SSH config file (~/.ssh/config).  For example, to make a shortcut named for the localname…
 
 Host shortcut
@@ -33,40 +33,40 @@ User accountname
 So then you can simply log in with: ssh shortcut
 
 From the account root (above public_html), set up a directory (called www in this example) for your Git repo..
-
+```
 mkdir -p ~/www.git && cd $_
 git init --bare
-
+```
 Add a command in the post-receive hook…
-
+```
 cat > hooks/post-receive << EOF
 #!/bin/sh
 GIT_WORK_TREE=/home/accountname/public_html git checkout -f
 EOF
-
+```
 Change permissions on that same file…
-
+```
 chmod +x hooks/post-receive;
-
+```
 Step 3: Add the remote Git repo.
 Now, back on the local machine move to your local repository (or create one if need be)…
-
+```
 cd ~/Sites/localname
-
+```
 Add a remote Git repo that points to your server. (i will call mine www as above, but you can call it “production” or whatever you want it need not match the repo name)…
-
+```
 git remote add www ssh://accountname@your.host.name:222/home/accountname/www.git/
-
+```
 Or if you are using the SSH config hint from above, simply…
-
+```
 git remote add www ssh://shortcut/home/accountname/www.git/
-
+```
 Push to the server…
-
+```
 git push www +master:refs/heads/master
-
+```
 To update the site in the future, just use…
-
+```
 git push www
-
+```
 …Or any Git GUI will do for the pushing.
