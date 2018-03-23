@@ -8,8 +8,7 @@
 | Arrow keys    | Move around                                 |
 | `0`           | Go to beginning of line                     |
 | `$`           | Go to beginning of line                     |
-| `:w`          |	Save (write) a file`                        |
-
+| `:w`          |	Save (write) a file                         |
 | `:q`          |	Quit a file (must be saved)                 |
 | `:wq`         |	Write and quit a file                       |
 | `:q!`         |	Force-quit a file, discarding any changes   |
