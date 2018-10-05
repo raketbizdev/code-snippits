@@ -404,7 +404,10 @@ $ mysqldump --single-transaction -u db_user -p db_name db_table_name > sqldump.s
 #Dumping single database
 $ mysqldump --single-transaction -u db_user -p db_name > sqldump.sql
 ```
-
+# How to Uploald sql in terminal
+```
+$ mysql -u username -p database_name < file.sql
+```
 # Hide Desktop Icon for Mac
 
 ```
