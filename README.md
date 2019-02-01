@@ -272,6 +272,7 @@ Determine Current Folder size
 
 ```
 du -sh *
+du -hs * | sort -h
 ```
 
 output
