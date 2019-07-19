@@ -13,3 +13,5 @@ echo "Check if theres no error"
 sudo systemctl status apache2
 echo "Visit IP address below to check if works."
 curl http://checkip.amazonaws.com
+echo "Deleting Shell files."
+sudo rm -rf auto-install-apache2-aws.sh
