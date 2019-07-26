@@ -29,6 +29,7 @@ Restart server
 Copy ssh to the server
 
 `ssh-copy-id username@your_server_ip`
-Put PasswordAuthentication from Yes to No
 
+then login
+`ssh username@your_server_ip`
 
