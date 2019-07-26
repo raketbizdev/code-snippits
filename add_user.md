@@ -23,10 +23,12 @@ Change PasswordAuthentication from No to Yes
 PasswordAuthentication no
 # PasswordAuthentication yes
 ```
+Restart server 
+`sudo service ssh restart`
+
 Copy ssh to the server
 
 `ssh-copy-id username@your_server_ip`
 Put PasswordAuthentication from Yes to No
 
-Restart server 
-`sudo service ssh restart`
+
