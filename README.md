@@ -48,6 +48,23 @@ sudo ifconfig en1 ether [mac address to spoof]
   :timestamp
 ```
 
+# Here are all the Rails 5 (ActiveRecord migration) datatypes:
+```
+	:primary_key
+	:string
+	:text
+	:integer
+	:bigint
+	:float
+	:decimal
+	:numeric
+	:datetime
+	:time
+	:date
+	:binary
+	:boolean
+```
+
 # Date and time Format meaning
 
 * `%a` - The abbreviated weekday name (“Sun”)
