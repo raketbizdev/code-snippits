@@ -19,7 +19,8 @@ in your `config/environments/production.rb`
 * Select ***custom name***
 * then save the password
 
-### add it to the  `config/environments/production.rb`
+### Add it to the  `config/environments/production.rb`
+its important you save all your credentials inside `master.key` or use `figaro gem.`
 
 ```ruby
 config.action_mailer.smtp_settings = {
