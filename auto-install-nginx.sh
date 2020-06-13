@@ -3,7 +3,10 @@
 # Company: Ruel Nopal - IT Consultant.
 # url: www.ruelnopal.com
 # Installing NginX.
-
+#
+# apt update && apt upgrade
+# apt install wget
+# run wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/auto-install-nginx.sh; sudo chmod 755 auto-install-nginx.sh; ./auto-install-nginx.sh
 echo "Make sure you are a sudo user"
 cd /
 sudo apt update
