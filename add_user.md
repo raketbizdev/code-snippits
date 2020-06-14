@@ -25,6 +25,7 @@ PasswordAuthentication no
 ```
 
 add sudoer to the user
+
 `usermod -aG sudo newuser`
 
 Restart server 
