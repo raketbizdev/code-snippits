@@ -32,6 +32,7 @@ Copy ssh to the server
 
 then login
 `ssh username@your_server_ip`
+
 add sudoer to the user
 `usermod -aG sudo newuser`
 
