@@ -35,7 +35,9 @@ Copy ssh to the server
 `ssh-copy-id username@your_server_ip`
 
 then login if you are just using `id_rsa`
+
 `ssh username@your_server_ip`
 
 Bu if you name your ssh-kew differently you have to specify it pay calling the private-key
+
 `ssh -i path/to/your/private-key username@your_server_ip`
