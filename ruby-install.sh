@@ -42,7 +42,9 @@ sudo apt install postgresql postgresql-contrib libpq-dev -y
 systemctl start postgresql
 systemctl enable postgresql
 
+echo 'create username'
 read username
-
+echo 'create password'
+read password
 sudo -i -u postgres psql
-create role hakase_dev with createdb login password 'hakasepass';
+create role ${username} with createdb login password ${password};
