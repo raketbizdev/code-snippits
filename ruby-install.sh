@@ -11,6 +11,7 @@ curl -sSL https://get.rvm.io | bash -s stable --ruby
 source /usr/local/rvm/scripts/rvm
 
 rvm get stable --autolibs=enable
+echo 'adding rvm group'
 usermod -a -G rvm circleci
 
 rvm version
@@ -38,7 +39,7 @@ gem install rails -v 6.0.2.1
 rails --version
 
 sudo apt install postgresql postgresql-contrib libpq-dev -y
-
+echo 'installing postgresql'
 systemctl start postgresql
 systemctl enable postgresql
 
@@ -47,4 +48,4 @@ read username
 echo 'create password'
 read password
 sudo -i -u postgres psql
-create role ${username} with createdb login password ${password};
+# create role ${username} with createdb login password ${password};
