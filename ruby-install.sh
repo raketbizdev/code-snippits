@@ -3,6 +3,10 @@
 # Company: Ruel Nopal - IT Consultant.
 # url: www.ruelnopal.com
 # Creating users
+# To run this shell copy and paste this command first 
+# apt update && apt upgrade
+# apt install wget
+# wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/ruby-install.sh; sudo chmod 755 ruby-install.sh; ./ruby-install.sh
 
 gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
@@ -12,7 +16,8 @@ source /usr/local/rvm/scripts/rvm
 
 rvm get stable --autolibs=enable
 echo 'adding rvm group'
-usermod -a -G rvm circleci
+echo 'get current $USER'
+usermod -a -G rvm $USER
 
 rvm version
 rvm install ruby-2.6.5
@@ -47,5 +52,7 @@ echo 'create username'
 read username
 echo 'create password'
 read password
-sudo -i -u postgres psql
-# create role ${username} with createdb login password ${password};
+
+echo 'Save username and password then run sudo -i -u postgres psql'
+# sudo -i -u postgres psql
+echo 'create role ${username} with createdb login password ${password};'
