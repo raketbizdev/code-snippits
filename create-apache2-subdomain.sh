@@ -32,7 +32,7 @@ sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
 
         ServerName ${subdomain}
       
-        DirectoryIndex index.php
+        DirectoryIndex index.html index.cgi index.php
 
         <Directory /var/www/html/${subdomain}/public/>
                 Options Indexes FollowSymLinks
