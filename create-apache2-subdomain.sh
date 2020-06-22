@@ -16,27 +16,27 @@ sudo chown $USER:$USER /var/www/html/${subdomain}
 
 echo 'create a virtualhost'
 sudo touch /etc/apache2/sites-available/${subdomain}.conf
-cat <<EOT >> ${subdomain}.conf
-'<VirtualHost *:80>
+cat >> ${subdomain}.conf <<EOL
+'<\VirtualHost *\:\80>\
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/${subdomain}/public/
+        DocumentRoot /\var/\www/\html/\${subdomain}/\public/\
 
-        ServerName ${subdomain}
+        ServerName $\{\subdomain}\
       
         DirectoryIndex index.php
 
-        <Directory /var/www/html/${subdomain}/public/>
+        <\Directory /\var/\www/\html/\$\{\subdomain}\/\public/\>\
                 Options Indexes FollowSymLinks
                 AllowOverride All
                 Require all granted
-        </Directory>
+        <\/\Directory>\
 
-        ErrorLog ${APACHE_LOG_DIR}/${subdomain}.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog $\{\APACHE_LOG_DIR}\/\$\{\subdomain}\.log
+        CustomLog $\{\APACHE_LOG_DIR}\/\access.log combined
 
-</VirtualHost>'
-EOT
+<\/\VirtualHost>\'
+EOL
 echo 'end of the commanline'
 echo 'deleting shell script'
 sudo cat /etc/apache2/sites-available/${subdomain}.conf
