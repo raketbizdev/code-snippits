@@ -10,6 +10,8 @@ echo 'create a subdomain folder'
 echo 'enter subdomain name:'
 read subdomain
 sudo mkdir /var/www/html/${subdomain}
+echo '${subdomain} has been created.'
+echo 'change user'
 sudo chown $USER:$USER /var/www/html/${subdomain}
 
 echo 'create a virtualhost'
@@ -37,5 +39,7 @@ cat <<EOT >> ${subdomain}.conf
 EOT
 echo 'end of the commanline'
 echo 'deleting shell script'
+sudo cat /etc/apache2/sites-available/${subdomain}.conf
+
 sudo rm create-apache2-subdomain.sh
 
