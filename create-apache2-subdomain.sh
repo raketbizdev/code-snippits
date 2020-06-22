@@ -53,4 +53,3 @@ echo 'deleting shell script'
 sudo service apache2 restart
 sudo a2ensite /var/www/html/${subdomain}/${subdomain}.conf
 sudo rm create-apache2-subdomain.sh
-
