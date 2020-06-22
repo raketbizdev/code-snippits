@@ -9,7 +9,7 @@
 echo 'create a subdomain folder'
 echo 'enter subdomain name:'
 read subdomain
-sudo mkidir /var/www/html/${subdomain}
+sudo mkdir /var/www/html/${subdomain}
 sudo chown $USER:$USER /var/www/html/${subdomain}
 
 echo 'create a virtualhost'
