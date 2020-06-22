@@ -27,7 +27,7 @@ sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/${subdomain}/public/
+        DocumentRoot /var/www/html/${subdomain}/public
 
         ServerName ${subdomain}
       
@@ -48,7 +48,6 @@ sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
 echo 'end of the commanline'
 echo 'deleting shell script'
-
-sudo service apache2 restart
+sudo systemctl restart apache2
 sudo a2ensite /var/www/html/${subdomain}/${subdomain}.conf
 sudo rm create-apache2-subdomain.sh
