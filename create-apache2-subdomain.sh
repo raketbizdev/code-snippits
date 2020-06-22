@@ -2,8 +2,7 @@
 # Author name: Ruel Nopal
 # Company: Ruel Nopal - IT Consultant.
 # url: www.ruelnopal.com
-# Creating users
-# run this
+# run the command below
 # wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/create-apache2-subdomain.sh; sudo chmod 755 create-apache2-subdomain.sh; ./create-apache2-subdomain.sh;
 
 echo 'create a subdomain folder'
@@ -40,8 +39,8 @@ sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
                 Require all granted
         </Directory>
 
-        ErrorLog ${APACHE_LOG_DIR}/error.log
-        CustomLog ${APACHE_LOG_DIR}/access.log combined
+        ErrorLog $\{APACHE_LOG_DIR}/error.log
+        CustomLog $\{APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 EOL
