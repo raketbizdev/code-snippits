@@ -40,6 +40,7 @@ EOT
 echo 'end of the commanline'
 echo 'deleting shell script'
 sudo cat /etc/apache2/sites-available/${subdomain}.conf
-
+sudo service apache2 restart
+a2ensite /etc/apache2/sites-available/${subdomain}.conf
 sudo rm create-apache2-subdomain.sh
 
