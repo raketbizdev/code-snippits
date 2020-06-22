@@ -24,7 +24,11 @@ ufw status
 cat /etc/passwd
 grep '^${username}' /etc/passwd
 
-echo 'restart ssh'
-sudo service ssh restart
+echo 'restarting ssh'
+sudo systemctl restart ssh
 
 groups ${username}
+
+sudo mkdir /home/${username}/.ssh
+sudo touch /home/${username}/.ssh/authorized_keys
+
