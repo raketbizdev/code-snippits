@@ -15,7 +15,7 @@ sudo chown $USER:$USER /var/www/html/${subdomain}
 echo 'create a virtualhost'
 sudo touch /etc/apache2/sites-available/${subdomain}.conf
 cat <<EOT >> ${subdomain}.conf
-<VirtualHost *:80>
+'<VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
         DocumentRoot /var/www/html/${subdomain}/public/
@@ -33,7 +33,7 @@ cat <<EOT >> ${subdomain}.conf
         ErrorLog ${APACHE_LOG_DIR}/${subdomain}.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
-</VirtualHost>
+</VirtualHost>'
 EOT
 echo 'end of the commanline'
 echo 'deleting shell script'
