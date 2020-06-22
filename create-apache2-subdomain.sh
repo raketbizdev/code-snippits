@@ -13,10 +13,12 @@ sudo mkdir /var/www/html/${subdomain}
 echo '${subdomain} has been created.'
 echo 'change user'
 sudo chown $USER:$USER /var/www/html/${subdomain}
-
+sudo mkdir /var/www/html/${subdomain}/public
+sudo touch /var/www/html/${subdomain}/public/index.html
+echo '<h1>${subdomain} Test working</h1>' > /var/www/html/${subdomain}/public/index.html
 echo 'create a virtualhost'
 sudo touch /etc/apache2/sites-available/${subdomain}.conf
-cat >> ${subdomain}.conf <<EOL
+cat >> /etc/apache2/sites-available/${subdomain}.conf <<EOL
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
@@ -32,7 +34,7 @@ cat >> ${subdomain}.conf <<EOL
                 Require all granted
         </Directory>
 
-        ErrorLog ${APACHE_LOG_DIR}/${subdomain}.log
+        ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
