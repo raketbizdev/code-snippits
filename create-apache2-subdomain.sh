@@ -49,6 +49,7 @@ sudo cat /var/www/html/${subdomain}/${subdomain}.conf
 sudo systemctl restart apache2
 sudo a2ensite /var/www/html/${subdomain}/${subdomain}.conf
 echo 'end of the commanline'
-sudo rm create-apache2-subdomain.sh
 echo 'deleting shell script'
+sudo rm create-apache2-subdomain.sh
+
 
