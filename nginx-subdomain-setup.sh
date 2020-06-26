@@ -103,7 +103,7 @@ sudo systemctl restart nginx
 echo 'end of the commanline'
 echo 'deleting shell script'
 
-echo 'deleting create-apache2-subdomain.sh'
+echo 'deleting nginx-subdomain-setup.sh'
 echo 'if you like this script dont forget to spread the word and give a beer to this man.'
 echo 'my paypal https://paypal.me/freelancerdad'
 echo 'Enjoy happy coding'
