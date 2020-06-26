@@ -32,3 +32,18 @@ groups ${username}
 sudo mkdir /home/${username}/.ssh
 sudo touch /home/${username}/.ssh/authorized_keys
 
+echo 'Add public key to the authorized_keys:'
+echo 'Enter public_key from your local machine:'
+read pubkey
+sudo cat >> /home/${username}/.ssh/authorized_keys <<EOL
+  ${pubkey}
+EOL
+echo ${pubkey}
+echo 'public_key added'
+echo 'change user permision to ${username}'
+sudo chown ${username}:${username} /home/${username}/.ssh/authorized_keys
+echo ' everything is complet now login using the new user with the ssh default port 22'
+echo 'deleting add_user_ubunto.sh'
+echo 'if you like this script dont forget to spread the word and give a beer to this man.'
+echo 'my paypal https://paypal.me/freelancerdad'
+sudo rm add_user_ubunto.sh
