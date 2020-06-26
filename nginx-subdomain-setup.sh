@@ -5,12 +5,12 @@
 # run the command below
 # wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/nginx-subdomain-setup.sh; sudo chmod 755 nginx-subdomain-setup.sh; ./nginx-subdomain-setup.sh;
 
-echo 'create a subdomain folder'
-echo 'enter subdomain name:'
+echo -e '\e[33create a subdomain folder'
+echo -e '\e[33enter subdomain name:'
 read subdomain
 sudo mkdir /var/www/html/${subdomain}
-echo '${subdomain} has been created.'
-echo 'change user'
+echo -e '\e[33${subdomain} has been created.'
+echo -e '\e[33change user'
 sudo chown $USER:$USER /var/www/html/${subdomain}
 sudo mkdir /var/www/html/${subdomain}/public
 sudo touch /var/www/html/${subdomain}/public/index.html
@@ -19,26 +19,26 @@ sudo chown $USER:$USER /var/www/html/${subdomain}/public/index.html
 sudo cat >>  /var/www/html/${subdomain}/public/index.html <<EOL
   <html>
       <head>
-          <title>Welcome to Your_domain!</title>
+          <title>Welcome to ${subdomain}!</title>
       </head>
       <body>
-          <h1>Success!  The your_domain virtual host is working!</h1>
+          <h1>Success!  The ${subdomain} virtual host is working!</h1>
       </body>
   </html>
 EOL
 
-echo 'creating a virtualhost'
+echo -e '\e[33creating a virtualhost'
 sudo touch /var/www/html/${subdomain}/${subdomain}.conf
 sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
 IP="curl http://checkip.amazonaws.com"
 GETIP="echo ${IP}"
 if which certbot >/dev/null; then
     echo exists
-    echo "Cerbot already been install proceed to install cerbot"
+    echo -e '\e[33Cerbot already been install proceed to install cerbot'
     sudo certbot certonly --nginx -d ${subdomain}
 else
     echo does not exist
-    echo "Installing Cerbot letsencrypt"
+    echo -e '\e[33Installing Cerbot letsencrypt'
     sudo apt-get update
     sudo apt-get install software-properties-common
     sudo add-apt-repository universe
@@ -53,10 +53,10 @@ server {
     listen [::]:80;
     server_name ${subdomain};
     root /var/www/html/${subdomain}/public
-    echo "return 301 https://$host$request_uri";
+    return 301 https://\$host\$request_uri;
     
     location / {
-              echo "try_files $uri $uri/ =404";
+              try_files \$uri \$uri/ =404;
     }
 }
 
@@ -91,20 +91,20 @@ server {
     # ssl_trusted_certificate /path/to/root_CA_cert_plus_intermediates;
 
     # replace with the IP address of your resolver
-    resolver ${GETIP};
+    # resolver ${GETIP};
     location / {
-                echo "try_files $uri $uri/ =404";
+                try_files \$uri \$uri/ =404;
     }
 }
 EOL
 sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
 sudo systemctl restart nginx
-echo 'end of the commanline'
-echo 'deleting shell script'
+echo -e '\e[33end of the commanline'
+echo -e '\e[33deleting shell script'
 
-echo 'deleting nginx-subdomain-setup.sh'
-echo 'if you like this script dont forget to spread the word and give a beer to this man.'
-echo 'my paypal https://paypal.me/freelancerdad'
-echo 'Enjoy happy coding'
+echo -e '\e[33deleting nginx-subdomain-setup.sh'
+echo -e '\e[33if you like this script dont forget to spread the word and give a beer to this man.'
+echo -e '\e[33my paypal \e[5https://paypal.me/freelancerdad'
+echo -e '\e[33Enjoy happy coding'
 sudo rm nginx-subdomain-setup.sh
