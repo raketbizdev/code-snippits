@@ -48,9 +48,9 @@ else
 fi
 
 sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
+'server {
+    listen 80;
+    listen [::]:80;
     server_name ${subdomain};
     root /var/www/html/${subdomain}/public
     return 301 https://$host$request_uri;
@@ -95,7 +95,7 @@ server {
     location / {
                 try_files $uri $uri/ =404;
     }
-}
+}'
 EOL
 sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
