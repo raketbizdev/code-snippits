@@ -32,18 +32,19 @@ sudo touch /var/www/html/${subdomain}/${subdomain}.conf
 sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
 IP="curl http://checkip.amazonaws.com"
 CERTBOT="dpkg-query -l certbot"
-if [ ${CERTBOT} == 'no packages found matching certbot' ]
-then
-  echo "Installing Cerbot letsencrypt"
-  sudo apt-get update
-  sudo apt-get install software-properties-common
-  sudo add-apt-repository universe
-  sudo apt-get update
-  sudo apt-get install certbot python3-certbot-nginx
-  sudo certbot certonly --nginx -d ${subdomain}
+if which certbot >/dev/null; then
+    echo exists
+    echo "Cerbot already been install proceed to install cerbot"
+    sudo certbot certonly --nginx -d ${subdomain}
 else
-   echo "Cerbot already been install proceed to install cerbot"
-   sudo certbot certonly --nginx -d ${subdomain}
+    echo does not exist
+    echo "Installing Cerbot letsencrypt"
+    sudo apt-get update
+    sudo apt-get install software-properties-common
+    sudo add-apt-repository universe
+    sudo apt-get update
+    sudo apt-get install certbot python3-certbot-nginx
+    sudo certbot certonly --nginx -d ${subdomain}
 fi
 
 sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
