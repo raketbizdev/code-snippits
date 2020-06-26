@@ -48,15 +48,15 @@ else
 fi
 
 sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
-'server {
+server {
     listen 80;
     listen [::]:80;
     server_name ${subdomain};
     root /var/www/html/${subdomain}/public
-    return 301 https://$host$request_uri;
+    return 301 "https://$host$request_uri";
     
     location / {
-                try_files $uri $uri/ =404;
+                try_files "$uri $uri/ =404";
     }
 }
 
@@ -93,9 +93,9 @@ server {
     # replace with the IP address of your resolver
     resolver ${GETIP};
     location / {
-                try_files $uri $uri/ =404;
+                try_files "$uri $uri/ =404";
     }
-}'
+}
 EOL
 sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
