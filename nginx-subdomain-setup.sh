@@ -52,48 +52,11 @@ server {
     listen 80;
     listen [::]:80;
     server_name ${subdomain};
-    root /var/www/html/${subdomain}/public
-    return 301 https://\$host\$request_uri;
+    root /var/www/html/${subdomain}/public;
+    # return 301 https://\$host\$request_uri;
     
     location / {
               try_files \$uri \$uri/ =404;
-    }
-}
-
-server {
-    listen 443 ssl http2;
-    listen [::]:443 ssl http2;
-    root /var/www/html/${subdomain}/public;
-    server_name ${subdomain};
-
-    ssl_certificate /etc/letsencrypt/live/${subdomain}/fullchain.pem;
-    ssl_certificate_key  /etc/letsencrypt/live/${subdomain}/privkey.pem;
-    ssl_session_timeout 1d;
-    ssl_session_cache shared:MozSSL:10m;  # about 40000 sessions
-    ssl_session_tickets off;
-
-    # curl https://ssl-config.mozilla.org/ffdhe2048.txt > /path/to/dhparam
-    ssl_dhparam /etc/letsencrypt/certs/dhparam.pem;
-
-    # intermediate configuration
-    ssl_protocols TLSv1.2 TLSv1.3;
-    ssl_ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384;
-    ssl_prefer_server_ciphers off;
-
-    # HSTS (ngx_http_headers_module is required) (63072000 seconds)
-    add_header Strict-Transport-Security "max-age=63072000" always;
-
-    # OCSP stapling
-    ssl_stapling on;
-    ssl_stapling_verify on;
-
-    # verify chain of trust of OCSP response using Root CA and Intermediate certs
-    # ssl_trusted_certificate /path/to/root_CA_cert_plus_intermediates;
-
-    # replace with the IP address of your resolver
-    # resolver ${GETIP};
-    location / {
-                try_files \$uri \$uri/ =404;
     }
 }
 EOL
