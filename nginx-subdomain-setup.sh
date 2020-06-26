@@ -31,7 +31,7 @@ echo 'creating a virtualhost'
 sudo touch /var/www/html/${subdomain}/${subdomain}.conf
 sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
 IP="curl http://checkip.amazonaws.com"
-GETIP=${IP}
+GETIP="echo ${IP}"
 if which certbot >/dev/null; then
     echo exists
     echo "Cerbot already been install proceed to install cerbot"
