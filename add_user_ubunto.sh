@@ -46,4 +46,7 @@ echo ' everything is complet now login using the new user with the ssh default p
 echo 'deleting add_user_ubunto.sh'
 echo 'if you like this script dont forget to spread the word and give a beer to this man.'
 echo 'my paypal https://paypal.me/freelancerdad'
+echo 'run this in your local machine'
+ip=curl http://checkip.amazonaws.com
+echo 'ssh ${username}@{$ip}
 sudo rm add_user_ubunto.sh
