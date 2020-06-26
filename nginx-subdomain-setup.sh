@@ -53,10 +53,10 @@ server {
     listen [::]:80;
     server_name ${subdomain};
     root /var/www/html/${subdomain}/public
-    return 301 "https://$host$request_uri";
+    echo "return 301 https://$host$request_uri";
     
     location / {
-                try_files "$uri $uri/ =404";
+              echo "try_files $uri $uri/ =404";
     }
 }
 
@@ -93,7 +93,7 @@ server {
     # replace with the IP address of your resolver
     resolver ${GETIP};
     location / {
-                try_files "$uri $uri/ =404";
+                echo "try_files $uri $uri/ =404";
     }
 }
 EOL
