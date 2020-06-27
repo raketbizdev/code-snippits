@@ -2,7 +2,13 @@
 # Author name: Ruel Nopal
 # Company: Ruel Nopal - IT Consultant.
 # url: www.ruelnopal.com
-# run the command below
+# facebook: https://www.facebook.com/raketbizdev/
+# Need a partime devops please contact me.
+# make sure you already set up your domain to point to your server 
+# Tested in Digitalocean Server Ubunto 20.04 LTS
+# Remember to share if you like this script
+# Run the command below
+
 # wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/nginx-subdomain-setup.sh; sudo chmod 755 nginx-subdomain-setup.sh; ./nginx-subdomain-setup.sh;
 
 echo -e '\e[33 create a subdomain folder'
