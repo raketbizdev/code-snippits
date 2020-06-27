@@ -47,5 +47,5 @@ echo 'if you like this script dont forget to spread the word and give a beer to 
 echo 'my paypal https://paypal.me/freelancerdad'
 echo 'run this in your local machine'
 IP="curl http://checkip.amazonaws.com"
-echo 'type ssh' ${username}@${IP} 'into your local machine to login'
+echo "type ssh ${username}@${IP} into your local machine to login"
 sudo rm add_user_ubunto.sh
