@@ -98,5 +98,5 @@ echo -e '\e[33 deleting nginx-subdomain-setup.sh'
 echo -e '\e[33 if you like this script dont forget to spread the word and give a beer to this man.'
 echo -e '\e[33 my paypal \e[5https://paypal.me/freelancerdad'
 echo -e '\e[33 Enjoy happy coding'
-curl http://checkip.amazonaws.com
+echo 'visit ${subdomain}'
 sudo rm nginx-subdomain-setup.sh
