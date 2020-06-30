@@ -95,7 +95,7 @@ server {
 EOL
 sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
-sudo sudo nginx -t
+sudo nginx -t
 sudo systemctl restart nginx
 echo -e '\e[33 end of the commanline'
 echo -e '\e[33 deleting shell script'
