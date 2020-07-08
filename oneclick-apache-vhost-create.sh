@@ -15,11 +15,11 @@ dir_root=pwd
 sudo cat >> ${subdomain}.conf <<EOL
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
-        DocumentRoot $dir_root
+        DocumentRoot $dir_root/
         ServerName ${subdomain}
       
         DirectoryIndex index.html index.cgi index.php
-        <Directory /var/www/html/${subdomain}/public/>
+        <Directory $dir_root/>
                 Options Indexes FollowSymLinks
                 AllowOverride All
                 Require all granted
@@ -32,4 +32,4 @@ sudo ln -nfs "$dir_root/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdoma
 sudo systemctl restart apache2
 echo 'end of the commanline'
 echo 'deleting shell script'
-sudo rm create-apache2-subdomain.sh
+sudo rm oneclick-apache-vhost-create.sh
