@@ -15,7 +15,7 @@ dir_root=pwd
 sudo cat >> ${subdomain}.conf <<EOL
 <VirtualHost *:80>
         ServerAdmin webmaster@localhost
-        DocumentRoot $dir_root/
+        DocumentRoot ${dir_root}/
         ServerName ${subdomain}
       
         DirectoryIndex index.html index.cgi index.php
