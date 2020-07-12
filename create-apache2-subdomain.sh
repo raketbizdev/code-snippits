@@ -12,6 +12,7 @@ sudo mkdir /var/www/html/${subdomain}
 echo '${subdomain} has been created.'
 echo 'change user'
 root_dir=pwd
+echo $root_dir
 sudo chown $USER:$USER $root_dir/${subdomain}
 sudo mkdir $root_dir/${subdomain}/public
 sudo touch $root_dir/${subdomain}/public/index.html
