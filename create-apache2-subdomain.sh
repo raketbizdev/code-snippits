@@ -10,24 +10,23 @@ echo 'enter subdomain name:'
 read subdomain
 root_dir="${1:-${PWD}}"
 echo $root_dir
-sudo mkdir $root_dir/${subdomain}
+sudo mkdir ${subdomain}
 echo "${subdomain} has been created."
 echo 'change user'
 
+sudo chown $USER:$USER ${subdomain}
+sudo mkdir ${subdomain}/public
+sudo touch ${subdomain}/public/index.html
+sudo chown $USER:$USER ${subdomain}/public/index.html
 
-sudo chown $USER:$USER $root_dir/${subdomain}
-sudo mkdir $root_dir/${subdomain}/public
-sudo touch $root_dir/${subdomain}/public/index.html
-sudo chown $USER:$USER $root_dir/${subdomain}/public/index.html
-
-sudo cat >>  $root_dir/${subdomain}/public/index.html <<EOL
+sudo cat >>  ${subdomain}/public/index.html <<EOL
         <h1>${subdomain} Test working</h1>
 EOL
 echo 'create a virtualhost'
-sudo touch $root_dir/${subdomain}/${subdomain}.conf
-sudo chown $USER:$USER $root_dir/${subdomain}/${subdomain}.conf
+sudo touch ${subdomain}/${subdomain}.conf
+sudo chown $USER:$USER ${subdomain}/${subdomain}.conf
 
-sudo cat >> $root_dir/${subdomain}/${subdomain}.conf <<EOL
+sudo cat >> ${subdomain}/${subdomain}.conf <<EOL
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
