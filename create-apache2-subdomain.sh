@@ -8,11 +8,13 @@
 echo 'create a subdomain folder'
 echo 'enter subdomain name:'
 read subdomain
-sudo mkdir /var/www/html/${subdomain}
-echo '${subdomain} has been created.'
-echo 'change user'
 root_dir="${1:-${PWD}}"
 echo $root_dir
+sudo mkdir $root_dir/${subdomain}
+echo "${subdomain} has been created."
+echo 'change user'
+
+
 sudo chown $USER:$USER $root_dir/${subdomain}
 sudo mkdir $root_dir/${subdomain}/public
 sudo touch $root_dir/${subdomain}/public/index.html
