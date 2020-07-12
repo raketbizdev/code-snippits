@@ -11,29 +11,30 @@ read subdomain
 sudo mkdir /var/www/html/${subdomain}
 echo '${subdomain} has been created.'
 echo 'change user'
-sudo chown $USER:$USER /var/www/html/${subdomain}
-sudo mkdir /var/www/html/${subdomain}/public
-sudo touch /var/www/html/${subdomain}/public/index.html
-sudo chown $USER:$USER /var/www/html/${subdomain}/public/index.html
+root_dir=pwd
+sudo chown $USER:$USER $root_dir/${subdomain}
+sudo mkdir $root_dir/${subdomain}/public
+sudo touch $root_dir/${subdomain}/public/index.html
+sudo chown $USER:$USER $root_dir/${subdomain}/public/index.html
 
-sudo cat >>  /var/www/html/${subdomain}/public/index.html <<EOL
+sudo cat >>  $root_dirD/${subdomain}/public/index.html <<EOL
         <h1>${subdomain} Test working</h1>
 EOL
 echo 'create a virtualhost'
-sudo touch /var/www/html/${subdomain}/${subdomain}.conf
-sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
+sudo touch $root_dir/${subdomain}/${subdomain}.conf
+sudo chown $USER:$USER $root_dir/${subdomain}/${subdomain}.conf
 
-sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
+sudo cat >> $root_dir/${subdomain}/${subdomain}.conf <<EOL
 <VirtualHost *:80>
 
         ServerAdmin webmaster@localhost
-        DocumentRoot /var/www/html/${subdomain}/public
+        DocumentRoot $root_dirD/${subdomain}/public
 
         ServerName ${subdomain}
       
         DirectoryIndex index.html index.cgi index.php
 
-        <Directory /var/www/html/${subdomain}/public/>
+        <Directory $root_dir/${subdomain}/public/>
                 Options Indexes FollowSymLinks
                 AllowOverride All
                 Require all granted
@@ -44,10 +45,10 @@ sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
 
 </VirtualHost>
 EOL
-sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
-sudo cat /var/www/html/${subdomain}/${subdomain}.conf
+sudo ln -nfs "$root_dir/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
+sudo cat $root_dirD/${subdomain}/${subdomain}.conf
 sudo systemctl restart apache2
-sudo a2ensite /var/www/html/${subdomain}/${subdomain}.conf
+sudo a2ensite $root_dir/${subdomain}/${subdomain}.conf
 echo 'end of the commanline'
 echo 'deleting shell script'
 sudo rm create-apache2-subdomain.sh
