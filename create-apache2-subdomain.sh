@@ -50,7 +50,6 @@ EOL
 sudo ln -nfs "${root_dir}/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
 sudo cat ${root_dir}/${subdomain}/${subdomain}.conf
 sudo systemctl restart apache2
-sudo a2ensite ${root_dir}/${subdomain}/${subdomain}.conf
 echo 'end of the commanline'
 echo 'deleting shell script'
 sudo rm create-apache2-subdomain.sh
