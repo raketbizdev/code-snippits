@@ -14,15 +14,17 @@
 echo -e '\e[33 create a subdomain folder'
 echo -e '\e[33 enter subdomain name:'
 read subdomain
-sudo mkdir /var/www/html/${subdomain}
+root_dir="${1:-${PWD}}"
+echo $root_dir
+sudo mkdir $root_dir/${subdomain}
 echo -e '\e[33 ${subdomain} has been created.'
 echo -e '\e[33 change user'
-sudo chown $USER:$USER /var/www/html/${subdomain}
-sudo mkdir /var/www/html/${subdomain}/public
-sudo touch /var/www/html/${subdomain}/public/index.html
-sudo chown $USER:$USER /var/www/html/${subdomain}/public/index.html
+sudo chown $USER:$USER $root_dir/${subdomain}
+sudo mkdir $root_dir/${subdomain}/public
+sudo touch $root_dir/${subdomain}/public/index.html
+sudo chown $USER:$USER $root_dir/${subdomain}/public/index.html
 
-sudo cat >>  /var/www/html/${subdomain}/public/index.html <<EOL
+sudo cat >>  $root_dir/${subdomain}/public/index.html <<EOL
   <html>
       <head>
           <title>Welcome to ${subdomain}!</title>
@@ -34,7 +36,7 @@ sudo cat >>  /var/www/html/${subdomain}/public/index.html <<EOL
 EOL
 
 echo -e '\e[33 creating a virtualhost'
-sudo touch /var/www/html/${subdomain}/${subdomain}.conf
+sudo touch $root_dir/${subdomain}/${subdomain}.conf
 sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
 if which certbot >/dev/null; then
     echo exists
@@ -51,11 +53,11 @@ else
     sudo certbot certonly --nginx -d ${subdomain}
 fi
 
-sudo cat >> /var/www/html/${subdomain}/${subdomain}.conf <<EOL
+sudo cat >> $root_dir/${subdomain}/${subdomain}.conf <<EOL
 server {
         listen 80;
 
-        root /var/www/html/${subdomain}/public;
+        root $root_dir/${subdomain}/public;
         index index.html index.htm index.nginx-debian.html;
         server_name ${subdomain};
 
@@ -68,7 +70,7 @@ server {
     listen 443 ssl http2;
     listen [::]:443 ssl http2;
 
-    root /var/www/html/${subdomain}/public;
+    root ${root_dir}/${subdomain}/public;
     server_name ${subdomain};
 
     ssl_certificate /etc/letsencrypt/live/${subdomain}/fullchain.pem;
@@ -93,7 +95,7 @@ server {
     }
 }
 EOL
-sudo ln -nfs "/var/www/html/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
+sudo ln -nfs "${root_dir}/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
 sudo cat /var/www/html/${subdomain}/${subdomain}.conf
 sudo nginx -t
 sudo systemctl restart nginx
