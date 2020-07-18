@@ -37,7 +37,7 @@ EOL
 
 echo -e '\e[33 creating a virtualhost'
 sudo touch $root_dir/${subdomain}/${subdomain}.conf
-sudo chown $USER:$USER /var/www/html/${subdomain}/${subdomain}.conf
+sudo chown $USER:$USER $root_dir/${subdomain}/${subdomain}.conf
 if which certbot >/dev/null; then
     echo exists
     echo -e '\e[33 Cerbot already been install proceed to install cerbot'
@@ -96,7 +96,7 @@ server {
 }
 EOL
 sudo ln -nfs "${root_dir}/${subdomain}/${subdomain}.conf" "/etc/nginx/sites-enabled/${subdomain}.conf"
-sudo cat /var/www/html/${subdomain}/${subdomain}.conf
+sudo cat $root_dir/${subdomain}/${subdomain}.conf
 sudo nginx -t
 sudo systemctl restart nginx
 echo -e '\e[33 end of the commanline'
