@@ -489,3 +489,7 @@ if ($organizer_img_file_return) {
             Require all granted
         </Directory>
 ```
+# Create ssh-keygen with pem
+```
+ssh-keygen -m PEM -t rsa
+```
