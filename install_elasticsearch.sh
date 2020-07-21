@@ -29,3 +29,5 @@ sudo nano /etc/elasticsearch/elasticsearch.yml
  node.name: "myNode1"
  
  sudo /bin/systemctl enable elasticsearch.service
+ curl localhost:9200
+ sudo rm -rf install_elasticsearch.sh
