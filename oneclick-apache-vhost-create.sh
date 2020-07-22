@@ -14,18 +14,28 @@ sudo chown $USER:$USER ${subdomain}.conf
 dir_root=pwd
 sudo cat >> ${subdomain}.conf <<EOL
 <VirtualHost *:80>
-        ServerAdmin webmaster@localhost
-        DocumentRoot ${dir_root}/
-        ServerName ${subdomain}
-      
-        DirectoryIndex index.html index.cgi index.php
-        <Directory $dir_root/>
-                Options Indexes FollowSymLinks
-                AllowOverride All
-                Require all granted
-        </Directory>
-        ErrorLog \${APACHE_LOG_DIR}/${subdomain}.error.log
-        CustomLog \${APACHE_LOG_DIR}/${subdomain}.access.log combined
+  ServerAdmin webmaster@localhost
+  ServerName ${subdomain}       
+</VirtualHost>
+<VirtualHost *:443>
+  ServerName ${subdomain} 
+  DocumentRoot ${dir_root}/public
+
+  ErrorLog \${APACHE_LOG_DIR}/${subdomain}.error.log
+  CustomLog \${APACHE_LOG_DIR}/${subdomain}.access.log combined
+
+  DirectoryIndex index.html index.cgi index.php
+  <Directory $dir_root/>
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+  </Directory>
+  # Example SSL configuration
+  SSLEngine on
+  SSLProtocol all -SSLv2
+  SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
+  SSLCertificateFile /etc/letsencrypt/live/${subdomain}/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/${subdomain}/privkey.pem
 </VirtualHost>
 EOL
 sudo ln -nfs "$dir_root/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
