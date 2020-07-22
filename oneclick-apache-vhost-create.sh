@@ -24,8 +24,8 @@ sudo cat >> ${subdomain}.conf <<EOL
                 AllowOverride All
                 Require all granted
         </Directory>
-        ErrorLog \${APACHE_LOG_DIR}/error.log
-        CustomLog \${APACHE_LOG_DIR}/access.log combined
+        ErrorLog \${APACHE_LOG_DIR}/${subdomain}.error.log
+        CustomLog \${APACHE_LOG_DIR}/${subdomain}.access.log combined
 </VirtualHost>
 EOL
 sudo ln -nfs "$dir_root/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
