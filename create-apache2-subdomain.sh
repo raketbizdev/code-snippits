@@ -25,26 +25,29 @@ EOL
 echo 'create a virtualhost'
 sudo touch ${subdomain}/${subdomain}.conf
 sudo chown $USER:$USER ${subdomain}/${subdomain}.conf
-
 sudo cat >> ${subdomain}/${subdomain}.conf <<EOL
 <VirtualHost *:80>
+  ServerAdmin webmaster@localhost
+  ServerName ${subdomain}       
+</VirtualHost>
 
-        ServerAdmin webmaster@localhost
-        DocumentRoot $root_dir/${subdomain}/public
-
-        ServerName ${subdomain}
-      
-        DirectoryIndex index.html index.cgi index.php
-
-        <Directory $root_dir/${subdomain}/public/>
-                Options Indexes FollowSymLinks
-                AllowOverride All
-                Require all granted
-        </Directory>
-
-        ErrorLog \${APACHE_LOG_DIR}/${subdomain}.error.log
-        CustomLog \${APACHE_LOG_DIR}/${subdomain}.access.log combined
-
+<VirtualHost *:443>
+  ServerName ${subdomain} 
+  DocumentRoot $root_dir/${subdomain}/public
+  ErrorLog \${APACHE_LOG_DIR}/${subdomain}.error.log
+  CustomLog \${APACHE_LOG_DIR}/${subdomain}.access.log combined
+  DirectoryIndex index.html index.cgi index.php
+  <Directory $root_dir/${subdomain}/public/>
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+  </Directory>
+  # Example SSL configuration
+  SSLEngine on
+  SSLProtocol all -SSLv2
+  SSLCipherSuite HIGH:MEDIUM:!aNULL:!MD5
+  SSLCertificateFile /etc/letsencrypt/live/${subdomain}/fullchain.pem
+  SSLCertificateKeyFile /etc/letsencrypt/live/${subdomain}/privkey.pem
 </VirtualHost>
 EOL
 sudo ln -nfs "${root_dir}/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
