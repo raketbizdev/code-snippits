@@ -11,6 +11,8 @@ read username
 sudo adduser ${username}
 
 sudo usermod -aG sudo ${username}
+sudo adduser ${username} www-data
+sudo echo "deployer     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 echo 'Add Firewall'
 ufw app list
