@@ -9,7 +9,7 @@
 # Remember to share if you like this script
 # Run the command below
 
-# https://raw.githubusercontent.com/raketbizdev/code-snippits/master/one-click-install-kibana-with-nginx.sh sudo chmod 755 one-click-install-kibana-with-nginx.sh; ./one-click-install-kibana-with-nginx.sh
+# wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/one-click-install-kibana-with-nginx.sh sudo chmod 755 one-click-install-kibana-with-nginx.sh; ./one-click-install-kibana-with-nginx.sh
 
 java -version
 sudo apt install apt-transport-https nginx
