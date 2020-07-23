@@ -5,6 +5,7 @@
 # url: www.ruelnopal.com
 # facebook: https://www.facebook.com/raketbizdev/
 # Need a partime devops please contact me.
+# One Click Install Kibana
 # Tested in Digitalocean Server Ubunto 20.04 LTS
 # Remember to share if you like this script
 # Run the command below
