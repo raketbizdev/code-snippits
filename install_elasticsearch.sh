@@ -6,6 +6,7 @@
 
 # change version before running.
 # wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/install_elasticsearch.sh; sudo chmod 755 install_elasticsearch.sh; ./install_elasticsearch.sh
+sudo apt install openjdk-8-jre-headless 
 java -version
 
 echo $JAVA_HOME
