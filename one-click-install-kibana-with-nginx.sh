@@ -20,10 +20,10 @@ sudo nano /etc/kibana/kibana.yml
 # add this to kibana.yml server.host: "localhost"
 sudo systemctl restart kibana
 
-echo -e '\e[33 create username for kiban'
+echo -e '\e[33 create username for kibana'
 echo -e '\e[33 enter username:'
 read username
-echo -e '\e[33 create password for kiban'
+echo -e '\e[33 create password for kibana'
 echo -e '\e[33 enter password:'
 read password
 echo "admin:`${username} passwd -apr1 ${password}`" | sudo tee -a /etc/nginx/htpasswd.kibana
