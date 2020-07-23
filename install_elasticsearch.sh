@@ -24,12 +24,14 @@ sudo apt-get install elasticsearch
 
 sudo nano /etc/elasticsearch/elasticsearch.yml
 
-network.host: 0.0.0.0
+network.host: 127.0.0.1
 cluster.name: myCluster1
-node.name: "myNode1"
+node.name: myNode1
  
+sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
-sudo systemctl start elasticsearch
+sudo /bin/systemctl start elasticsearch.service
+
 echo "Note! Elasticsearch Need 4GB of RAM"
 curl -X GET 'http://localhost:9200'
 sudo rm -rf install_elasticsearch.sh
