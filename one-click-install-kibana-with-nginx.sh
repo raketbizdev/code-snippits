@@ -19,6 +19,8 @@ echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee 
 sudo apt update && sudo apt install kibana
 sudo nano /etc/kibana/kibana.yml
 # add this to kibana.yml server.host: "localhost"
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
 sudo systemctl restart kibana
 
 echo -e '\e[33 create username for kibana'
