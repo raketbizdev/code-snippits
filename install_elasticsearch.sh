@@ -12,9 +12,7 @@ java -version
 echo $JAVA_HOME
 # if not available add java home to .bash_profile
 
-export JAVA_HOME=/usr/lib/jvm/java-1.11.0-openjdk-amd64
-
-export PATH=$PATH:/usr/lib/jvm/java-1.11.0-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-amd64
 
 sudo apt-get install apt-transport-https
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
