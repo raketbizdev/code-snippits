@@ -31,6 +31,6 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
 sudo /bin/systemctl start elasticsearch.service
 
-echo "Note! Elasticsearch Need 4GB of RAM"
+echo "Note! Elasticsearch Need 2GB of RAM per node"
 curl -X GET 'http://localhost:9200'
 sudo rm -rf install_elasticsearch.sh
