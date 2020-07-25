@@ -32,6 +32,7 @@ groups ${username}
 
 sudo mkdir /home/${username}/.ssh
 sudo touch /home/${username}/.ssh/authorized_keys
+sudo chown -R ${username:${username /home/${username}/.ssh
 
 echo 'Add public key to the authorized_keys:'
 echo 'Enter public_key from your local machine:'
