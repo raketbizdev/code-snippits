@@ -493,3 +493,7 @@ if ($organizer_img_file_return) {
 ```
 ssh-keygen -m PEM -t rsa
 ```
+# Run Nodejs continuesly
+```
+$ node index.js && nohup -& (to run as a background process - no hiccup)
+```
