@@ -12,7 +12,7 @@ echo 'enter port number ex: 3000:'
 read port_num
 sudo touch ${subdomain}.conf
 sudo chown $USER:$USER ${subdomain}.conf
-dir_root=pwd
+root_dir="${1:-${PWD}}"
 echo $dir_root
 sudo cat >> ${subdomain}.conf <<EOL
 <VirtualHost *:80>
