@@ -11,7 +11,7 @@ echo 'enter subdomain name:'
 read subdomain
 sudo touch ${subdomain}.conf
 sudo chown $USER:$USER ${subdomain}.conf
-dir_root=pwd
+root_dir="${1:-${PWD}}"
 sudo cat >> ${subdomain}.conf <<EOL
 <VirtualHost *:80>
   ServerAdmin webmaster@localhost
