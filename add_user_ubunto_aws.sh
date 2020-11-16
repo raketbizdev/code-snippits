@@ -12,23 +12,16 @@ sudo adduser ${username}
 
 sudo usermod -aG sudo ${username}
 sudo adduser ${username} www-data
-sudo echo "deployer     ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
-
-echo 'Add Firewall'
-ufw app list
-ufw allow OpenSSH
-ufw enable
-ufw status
+sudo echo "${username} ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
 
-
-cat /etc/passwd
-grep '^${username}' /etc/passwd
+sudo cat /etc/passwd
+sudo grep '^${username}' /etc/passwd
 
 echo 'restarting ssh'
 sudo systemctl restart ssh
 
-groups ${username}
+sudo groups ${username}
 
 sudo mkdir /home/${username}/.ssh
 sudo touch /home/${username}/.ssh/authorized_keys
