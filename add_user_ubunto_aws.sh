@@ -4,7 +4,7 @@
 # url: www.ruelnopal.com
 # Creating users
 # run this
-# wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/add_user_ubunto.sh; sudo chmod 755 add_user_ubunto.sh; ./add_user_ubunto.sh;
+# wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/add_user_ubunto_aws.sh; sudo chmod 755 add_user_ubunto_aws.sh; ./add_user_ubunto_aws.sh;
 # create username
 echo 'Enter Desired Username:'
 read username
