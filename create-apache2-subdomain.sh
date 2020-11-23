@@ -18,8 +18,8 @@ sudo chown $USER:$USER ${subdomain}
 sudo mkdir ${subdomain}/public
 sudo touch ${subdomain}/public/index.html
 sudo chown $USER:$USER ${subdomain}/public/index.html
-echo 'creating ssl from cerbot'
-sudo cerbot certonly -d ${subdomain}
+echo 'creating ssl from certbot'
+sudo certbot certonly -d ${subdomain}
 sudo cat >>  ${subdomain}/public/index.html <<EOL
         <h1>${subdomain} Test working</h1>
 EOL
