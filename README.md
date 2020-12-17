@@ -31,23 +31,6 @@ sudo ifconfig en1 ether [mac address to spoof]
 * Open function.php
 * add this code ```add_filter( 'jpeg_quality', create_function( '', 'return 80;' ) );```
 
-# Here are all the Rails 4 (ActiveRecord migration) datatypes:
-```
-  :binary
-  :boolean
-  :date
-  :datetime
-  :decimal
-  :float
-  :integer
-  :primary_key
-  :references
-  :string
-  :text
-  :time
-  :timestamp
-```
-
 # Here are all the Rails 5 (ActiveRecord migration) datatypes:
 ```
 	:primary_key
@@ -112,23 +95,6 @@ WHERE  CONTAINS("jobs")
 AND    strpos(lower(name),lower("jobs")) >=0
 ```
 
-# Facebook FQL Operator
-
-```
-me()
-now()
-rand()
-strlen(...)
-concat(...)
-substr(...)
-strpos(...)
-lower(...)
-upper(...)
-contains(...)
-order by
-SELECT, WHERE
-AND, OR, NOT, IN, ><=, +-*/  
-```
 # Ruby Sample Scraper
 
 ```ruby
