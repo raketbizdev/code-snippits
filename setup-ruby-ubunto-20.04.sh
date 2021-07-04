@@ -26,12 +26,12 @@ sudo ufw status
 systemctl status nginx
 ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
 
-gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 \
-7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-curl -sSL https://get.rvm.io | bash -s stable --ruby
+gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
+curl -sSL https://get.rvm.io | bash -s stable
 source /usr/local/rvm/scripts/rvm
 rvm get stable --autolibs=enable
-usermod -a -G rvm root
+u="$USER"
+usermod -a -G rvm $u
 echo "checking version"
 rvm version
 echo "make sure to install your gemfile ruby version"
