@@ -26,8 +26,9 @@ sudo ufw status
 systemctl status nginx
 ip addr show eth0 | grep inet | awk '{ print $2; }' | sed 's/\/.*$//'
 
-gpg2 --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3 7D2BAF1CF37B13E2069D6956105BD0E739499BDB
-curl -sSL https://get.rvm.io | bash -s stable
+command curl -sSL https://rvm.io/pkuczynski.asc | sudo gpg --import -
+curl -sSL https://get.rvm.io | bash -s stable --ruby
+curl -sSL https://get.rvm.io | bash -s stable --rails
 source ~/.rvm/scripts/rvm
 rvm get stable --autolibs=enable
 u="$USER"
