@@ -42,7 +42,7 @@ echo ${pubkey}
 echo 'public_key added'
 echo 'change user permision to ${username}'
 sudo chown ${username}:${username} /home/${username}/.ssh/authorized_keys
-echo ' everything is complet now login using the new user with the ssh default port 22'
+echo ' everything is complete now login using the new user with the ssh default port 22'
 echo 'deleting add_user_ubunto.sh'
 echo 'if you like this script dont forget to spread the word and give a beer to this man.'
 echo 'my paypal https://paypal.me/freelancerdad'
