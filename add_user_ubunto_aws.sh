@@ -47,4 +47,4 @@ echo 'my paypal https://paypal.me/freelancerdad'
 echo 'run this in your local machine'
 IP=$(curl http://checkip.amazonaws.com)
 echo "type ssh ${username}@${IP} into your local machine to login"
-sudo rm add_user_ubunto.sh
+sudo rm add_user_ubunto_aws.sh
