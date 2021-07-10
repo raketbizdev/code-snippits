@@ -36,8 +36,8 @@ echo "checking version"
 rvm version
 echo "make sure to install your gemfile ruby version"
 
-rvm install ruby-2.6.5
-rvm --default use ruby-2.6.5
+rvm install ruby
+rvm --default use ruby
 ruby --version
 gem update --system
 echo "Note: I dit not include postgresql or any other dbase so you can freely decide if you want to use separate db"
