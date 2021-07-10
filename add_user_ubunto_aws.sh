@@ -25,7 +25,9 @@ sudo groups ${username}
 
 sudo usermod -aG sudo ${username}
 sudo adduser ${username} www-data
-sudo echo "${username}  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
+sudo touch /etc/sudoers.d/${username}-users
+
+sudo echo "${username}  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers.d/${username}-users
 
 sudo mkdir /home/${username}/.ssh
 sudo touch /home/${username}/.ssh/authorized_keys
