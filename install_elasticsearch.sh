@@ -21,11 +21,11 @@ sudo add-apt-repository "deb https://artifacts.elastic.co/packages/7.x/apt stabl
 sudo apt-get update
 sudo apt-get install elasticsearch
 
-sudo nano /etc/elasticsearch/elasticsearch.yml
+# sudo nano /etc/elasticsearch/elasticsearch.yml
 
-network.host: 127.0.0.1
-cluster.name: myCluster1
-node.name: myNode1
+# network.host: 127.0.0.1
+# cluster.name: myCluster1
+# node.name: myNode1
  
 sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable elasticsearch.service
