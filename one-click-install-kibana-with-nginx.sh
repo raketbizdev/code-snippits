@@ -35,10 +35,6 @@ sudo /bin/systemctl daemon-reload
 sudo /bin/systemctl enable kibana.service
 sudo systemctl restart kibana
 
-
-
-
-
 echo "admin:`${username} passwd -apr1 ${password}`" | sudo tee -a /etc/nginx/htpasswd.kibana
 
 echo -e '\e[33 create subdomain for kibana'
