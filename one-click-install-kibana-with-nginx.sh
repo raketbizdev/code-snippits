@@ -17,18 +17,28 @@ sudo apt install apt-transport-https nginx
 wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
 echo "deb https://artifacts.elastic.co/packages/7.x/apt stable main" | sudo tee -a /etc/apt/sources.list.d/elastic-7.x.list
 sudo apt update && sudo apt install kibana
-sudo nano /etc/kibana/kibana.yml
+IP=`curl ipinfo.io/ip`
+echo $IP
 # add this to kibana.yml server.host: "localhost"
-sudo /bin/systemctl daemon-reload
-sudo /bin/systemctl enable kibana.service
-sudo systemctl restart kibana
-
+sudo sed -i 's/#server.host: "localhost"/server.host: "'${IP}'"/g' /etc/kibana/kibana.yml
+sudo sed -i 's/#server.port: 5601/server.port: 5601/g' /etc/kibana/kibana.yml
 echo -e '\e[33 create username for kibana'
 echo -e '\e[33 enter username:'
 read username
 echo -e '\e[33 create password for kibana'
 echo -e '\e[33 enter password:'
 read password
+sudo sed -i 's/#elasticsearch.username: "kibana"/elasticsearch.username: "kibana"/g' /etc/kibana/kibana.yml
+sudo sed -i 's/#elasticsearch.password: "pass"/elasticsearch.password: "pass"/g' /etc/kibana/kibana.yml
+
+sudo /bin/systemctl daemon-reload
+sudo /bin/systemctl enable kibana.service
+sudo systemctl restart kibana
+
+
+
+
+
 echo "admin:`${username} passwd -apr1 ${password}`" | sudo tee -a /etc/nginx/htpasswd.kibana
 
 echo -e '\e[33 create subdomain for kibana'
@@ -61,5 +71,4 @@ sudo rm /etc/nginx/sites-enabled/default
 sudo ln -s /etc/nginx/sites-available/${subdomain}.conf /etc/nginx/sites-enabled/${subdomain}.conf
 sudo nginx -t
 sudo systemctl restart nginx
-sudo apt install logstash
 sudo rm one-click-install-kibana-with-nginx.sh
