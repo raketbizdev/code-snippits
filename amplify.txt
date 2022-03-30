@@ -1,0 +1,23 @@
+1. Instll Was  cli
+2. Install Amplify Cli
+3. Create AWS Account
+4. Install Nodejs
+5. Install NPM or yarn
+6. Create IAM policy and activate programatic access and console access also add policy for amplify
+7. Configure amplify in your local machine
+	````
+		# Run Amplify configure
+		$ amplify configure
+		# select region
+		# enter access key id from IAM
+		# Enter Secret key
+		# enter username default
+	```
+8. Create your app vue, react, flutter, and more
+	```
+		cd $yourappdir
+	```
+9. Initialize amplify
+	``` 
+	$ amplify init
+	# Amplify ask you to enter

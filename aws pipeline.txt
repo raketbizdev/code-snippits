@@ -1,0 +1,14 @@
+Step 1: Signup AWS
+Step 2: Create IAM user
+Step 3: Download AWS CLI v2
+Step 4: AWS configuration 
+Step 5: Add aws config file to ssh directory
+Step 6: Create Repository to code commit
+Step 7: Clone repository to local
+Step 8: Create application inside clone repository
+Step 9: Push Application to code Commit
+Step 10: Create Elasctbeanstalk stalk or Ec2 Instance
+Step 11: Create Was Build
+Step 12: Create AWS Deploy
+Step 13: Watch it in AWS pipeline
+Step 14: Done 
