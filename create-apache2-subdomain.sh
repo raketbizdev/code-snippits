@@ -3,10 +3,25 @@
 # Company: Ruel Nopal - IT Consultant.
 # url: www.ruelnopal.com
 # run the command below
-# wget https://raw.githubusercontent.com/raketbizdev/code-snippits/master/create-apache2-subdomain.sh; sudo chmod 755 create-apache2-subdomain.sh; ./create-apache2-subdomain.sh;
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/create-apache2-subdomain.sh)
 
 subdomain=""
 root_dir="${1:-${PWD}}"
+
+install_dependencies() {
+  echo 'Checking for Apache installation...'
+  if ! [ -x "$(command -v apache2)" ]; then
+    echo 'Apache is not installed. Installing Apache...'
+    sudo apt-get update
+    sudo apt-get install apache2
+  fi
+
+  echo 'Checking for Certbot installation...'
+  if ! [ -x "$(command -v certbot)" ]; then
+    echo 'Certbot is not installed. Installing Certbot...'
+    sudo apt-get install certbot python3-certbot-apache
+  fi
+}
 
 create_subdomain_folder() {
   echo 'Creating subdomain folder...'
@@ -65,12 +80,17 @@ EOL
   sudo cat "${root_dir}/${subdomain}/${subdomain}.conf"
 }
 
+
+
+
 main() {
+  install_dependencies
+
   create_subdomain_folder
   create_public_folder
   create_ssl_certificate
   create_virtualhost_file
-  
+
   echo 'Restarting Apache service...'
   sudo systemctl restart apache2
 
@@ -78,5 +98,4 @@ main() {
   echo 'Deleting shell script...'
   sudo rm "$0"
 }
-
 main
