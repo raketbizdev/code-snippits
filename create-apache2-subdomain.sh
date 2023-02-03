@@ -42,15 +42,17 @@ create_public_folder() {
 }
 
 create_ssl_certificate() {
-  echo 'Enter domain/subdomain:'
-  read subdomain
-  if [[ $subdomain =~ ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$ ]]; then
-    echo 'Creating SSL certificate...'
-    sudo certbot certonly -d "$subdomain"
-  else
-    echo 'Invalid domain/subdomain.'
-    create_ssl_certificate
-  fi
+  while true; do
+    read -p "Enter a valid domain or subdomain name: " subdomain
+
+    if [[ $subdomain =~ ^([a-zA-Z0-9]+(-[a-zA-Z0-9]+)*\.)+[a-zA-Z]{2,}$ ]]; then
+      echo 'Creating SSL certificate...'
+      sudo certbot certonly -d "$subdomain"
+      break
+    else
+      echo "Invalid domain or subdomain name. Please enter a valid one."
+    fi
+  done
 }
 
 create_virtualhost_file() {
@@ -86,9 +88,6 @@ EOL
   sudo ln -nfs "${root_dir}/${subdomain}/${subdomain}.conf" "/etc/apache2/sites-enabled/${subdomain}.conf"
   sudo cat "${root_dir}/${subdomain}/${subdomain}.conf"
 }
-
-
-
 
 main() {
   install_dependencies
