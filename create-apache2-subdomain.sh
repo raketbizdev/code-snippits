@@ -42,8 +42,15 @@ create_public_folder() {
 }
 
 create_ssl_certificate() {
-  echo 'Creating SSL certificate...'
-  sudo certbot certonly -d "$subdomain"
+  echo 'Enter domain/subdomain:'
+  read subdomain
+  if [[ $subdomain =~ ^(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])$ ]]; then
+    echo 'Creating SSL certificate...'
+    sudo certbot certonly -d "$subdomain"
+  else
+    echo 'Invalid domain/subdomain.'
+    create_ssl_certificate
+  fi
 }
 
 create_virtualhost_file() {
