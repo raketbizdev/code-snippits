@@ -1,6 +1,9 @@
 #!/bin/bash
 # Author: Ruel Nopal
-# url:rnopal.com
+# url: rnopal.com
+
+# run the command below
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/upload_zip_s3.sh)
 
 # Check if AWS CLI is installed
 if ! command -v aws > /dev/null 2>&1; then
