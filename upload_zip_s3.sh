@@ -30,17 +30,18 @@ zip_files=$(find "$current_dir" -maxdepth 1 -name "*.zip")
 
 # Upload each zip file to S3 bucket
 for zip_file in $zip_files; do
-  echo -n "Uploading $zip_file to S3..."
+  echo -n "Uploading $zip_file to S3... 0%"
   aws s3 cp $zip_file s3://$bucket_name/$zip_file &
   pid=$!
 
-  # Show a loading animation while the file is being uploaded
+  # Show a loading animation with percentage indicator while the file is being uploaded
   spin='-\|/'
   i=0
   while kill -0 $pid 2>/dev/null
   do
     i=$(( (i+1) %4 ))
-    printf "\rUploading $zip_file to S3... ${spin:$i:1}"
+    aws_percentage=$(aws s3 cp $zip_file s3://$bucket_name/$zip_file --show-progress | awk '{print $5}' | tail -n 1 | cut -d"." -f1)
+    printf "\rUploading $zip_file to S3... $aws_percentage%% ${spin:$i:1}"
     sleep .1
   done
 
