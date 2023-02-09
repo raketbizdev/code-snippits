@@ -24,8 +24,9 @@ fi
 # Ask for S3 bucket name
 read -p "Enter the name of your S3 bucket: " bucket_name
 
-# Find all zip files in current directory
-zip_files=$(find . -name "*.zip")
+# Find all zip files in the current directory
+current_dir=$(pwd)
+zip_files=$(find "$current_dir" -maxdepth 1 -name "*.zip")
 
 # Upload each zip file to S3 bucket
 for zip_file in $zip_files; do
