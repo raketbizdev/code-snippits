@@ -29,10 +29,23 @@ zip_files=$(find . -name "*.zip")
 
 # Upload each zip file to S3 bucket
 for zip_file in $zip_files; do
-  aws s3 cp $zip_file s3://$bucket_name/$zip_file
+  echo -n "Uploading $zip_file to S3..."
+  aws s3 cp $zip_file s3://$bucket_name/$zip_file &
+  pid=$!
+
+  # Show a loading animation while the file is being uploaded
+  spin='-\|/'
+  i=0
+  while kill -0 $pid 2>/dev/null
+  do
+    i=$(( (i+1) %4 ))
+    printf "\rUploading $zip_file to S3... ${spin:$i:1}"
+    sleep .1
+  done
+
   if [ $? -eq 0 ]; then
-    echo "$zip_file successfully uploaded to S3."
+    echo -e "\r$zip_file successfully uploaded to S3.\n"
   else
-    echo "Error uploading $zip_file to S3."
+    echo -e "\rError uploading $zip_file to S3.\n"
   fi
 done
