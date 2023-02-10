@@ -3,7 +3,7 @@
 #author: ruel nopal
 # url: rnopal.com
 # run this command below
-# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/domain_config.sh)
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/domains_config.sh)
 
 # Function to validate domain name
 function validate_domain {
