@@ -5,8 +5,7 @@
 # bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/php_installer.sh)
 
 # Define variables
-LAMP_REPO="lamp-mariadb10.4-php"
-HTTPD_SERVICE="apache2"
+APACHE_SERVICE="apache2"
 APACHE_GROUP="www-data"
 WEB_ROOT="/var/www"
 PHP_INFO="<?php phpinfo(); ?>"
@@ -17,15 +16,15 @@ if ! apt-get update -y; then
   exit 1
 fi
 
-# Install LAMP stack
-if ! apt-get install -y $LAMP_REPO; then
-  echo "Failed to install LAMP stack."
+# Install Apache and MariaDB
+if ! apt-get install -y $APACHE_SERVICE mariadb-server; then
+  echo "Failed to install Apache and MariaDB."
   exit 1
 fi
 
-# Install Apache and MariaDB
-if ! apt-get install -y $HTTPD_SERVICE mariadb-server; then
-  echo "Failed to install Apache and MariaDB."
+# Install the latest version of PHP
+if ! apt-get install -y php; then
+  echo "Failed to install PHP."
   exit 1
 fi
 
