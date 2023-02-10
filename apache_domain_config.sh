@@ -77,7 +77,7 @@ sudo echo "<IfModule mod_ssl.c>
     SSLCertificateFile /etc/letsencrypt/live/$domain/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/$domain/privkey.pem
     
-    <FilesMatch "\.(cgi|shtml|phtml|php)\$">
+    <FilesMatch \"\.(cgi|shtml|phtml|php)$\">
             SSLOptions +StdEnvVars
     </FilesMatch>
     <Directory /usr/lib/cgi-bin>
