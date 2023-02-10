@@ -3,7 +3,7 @@
 # Author: Ruel Nopal
 # url: rnopal.com
 # run the command below
-# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/php_installer.sh)
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/lamp_installer.sh)
 
 # Define variables
 APACHE_SERVICE="apache2"
