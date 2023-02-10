@@ -81,19 +81,7 @@ sudo echo "<IfModule mod_ssl.c>
       Options Indexes FollowSymLinks
       AllowOverride All
       Require all granted
-    </Directory>
-    <FilesMatch "\.\(cgi|shtml|phtml|php)$">
-            SSLOptions +StdEnvVars
-    </FilesMatch>
-    <filesmatch "\.\(jpe?g|gif|png|css(\.gz)?|js(\.gz)?|ico)$">
-            ExpiresActive on
-            ExpiresDefault "access plus 11 days"
-    </filesmatch>
-    BrowserMatch "MSIE [2-6]" \
-            nokeepalive ssl-unclean-shutdown \
-            downgrade-1.0 force-response-1.0
-    BrowserMatch "MSIE [17-9]" ssl-unclean-shutdown
-    
+    </Directory>   
   </VirtualHost>
 </IfModule>" > /etc/apache2/sites-available/$domain-ssl.conf
 
