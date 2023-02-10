@@ -3,7 +3,7 @@
 #author: ruel nopal
 # url: rnopal.com
 # run this command below
-# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/ssl_domain_config.sh)
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/ss_domain_config.sh)
 
 # Function to validate domain name
 function validate_domain {
@@ -32,7 +32,6 @@ if ! [ -x "$(command -v certbot)" ]; then
   sudo snap install core; sudo snap refresh core
   sudo snap install --classic certbot
   sudo ln -s /snap/bin/certbot /usr/bin/certbot
-  sudo certbot --apache
 fi
 
 # Create the document root directory
