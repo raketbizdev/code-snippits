@@ -29,7 +29,10 @@ done
 # Install certbot if not already installed
 if ! [ -x "$(command -v certbot)" ]; then
   sudo apt-get update
-  sudo apt-get install certbot python3-certbot-apache
+  sudo snap install core; sudo snap refresh core
+  sudo snap install --classic certbot
+  sudo ln -s /snap/bin/certbot /usr/bin/certbot
+  sudo certbot --apache
 fi
 
 # Create the document root directory
