@@ -77,13 +77,18 @@ sudo echo "<IfModule mod_ssl.c>
     SSLCertificateFile /etc/letsencrypt/live/$domain/fullchain.pem
     SSLCertificateKeyFile /etc/letsencrypt/live/$domain/privkey.pem
     
-    <FilesMatch "\.(cgi|shtml|phtml|php)$">
+    <Directory /var/www/$domain/public_html/>
+      Options Indexes FollowSymLinks
+      AllowOverride All
+      Require all granted
+    </Directory>
+    <FilesMatch "\.\(cgi|shtml|phtml|php)$">
             SSLOptions +StdEnvVars
     </FilesMatch>
-    <Directory /usr/lib/cgi-bin>
-            SSLOptions +StdEnvVars
-    </Directory>
-
+    <filesmatch "\.\(jpe?g|gif|png|css(\.gz)?|js(\.gz)?|ico)$">
+            ExpiresActive on
+            ExpiresDefault "access plus 11 days"
+    </filesmatch>
     BrowserMatch "MSIE [2-6]" \
             nokeepalive ssl-unclean-shutdown \
             downgrade-1.0 force-response-1.0
