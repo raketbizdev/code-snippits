@@ -1,4 +1,8 @@
 #!/bin/bash
+# Author: Ruel Nopal
+# url: rnopal.com
+# run the command below
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/php_installer.sh)
 
 # Define variables
 LAMP_REPO="lamp-mariadb10.4-php"
