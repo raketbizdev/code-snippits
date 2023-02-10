@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # Author: Ruel Nopal
 # url: rnopal.com
 # run the command below
