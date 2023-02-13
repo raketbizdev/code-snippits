@@ -83,7 +83,7 @@ sudo echo "<IfModule mod_ssl.c>
       AllowOverride All
       Require all granted
     </Directory>   
-		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+		<FilesMatch "\\.(cgi|shtml|phtml|php)$">
 			SSLOptions +StdEnvVars
 		</FilesMatch>
 		<Directory /usr/lib/cgi-bin>
