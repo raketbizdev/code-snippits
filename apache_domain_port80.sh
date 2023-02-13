@@ -2,7 +2,7 @@
 #author: ruel nopal
 # url: rnopal.com
 # run this command below
-# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/ss_domain_config.sh)
+# bash <(curl -s https://raw.githubusercontent.com/raketbizdev/code-snippits/master/apache_domain_port80.sh)
 
 # Function to validate FQDN
 function is_valid_fqdn() {
