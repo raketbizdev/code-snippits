@@ -43,6 +43,9 @@ sudo chown -R $USER:www-data /var/www/$domain/public_html
 # Set the correct permissions on the directory
 sudo chmod -R 755 /var/www/$domain/public_html
 
+# Create a sample index.html file
+echo "<html><head><title>Welcome to $domain</title></head><body><h1>Success! The virtual host is working!</h1></body></html>" | sudo tee /var/www/$domain/public_html/index.html
+
 # Create the virtual host configuration file for port 80
 sudo touch /etc/apache2/sites-available/$domain.conf
 sudo echo "<VirtualHost *:80>
@@ -80,6 +83,12 @@ sudo echo "<IfModule mod_ssl.c>
       AllowOverride All
       Require all granted
     </Directory>   
+		<FilesMatch "\.(cgi|shtml|phtml|php)$">
+			SSLOptions +StdEnvVars
+		</FilesMatch>
+		<Directory /usr/lib/cgi-bin>
+			SSLOptions +StdEnvVars
+		</Directory>
   </VirtualHost>
 </IfModule>" > /etc/apache2/sites-available/$domain-ssl.conf
 
@@ -88,3 +97,4 @@ sudo a2ensite $domain-ssl.conf
 
 # Restart Apache to apply changes
 sudo service apache2 restart
+sudo systemctl reload apache2
