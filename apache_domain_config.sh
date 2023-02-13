@@ -83,9 +83,9 @@ sudo echo "<IfModule mod_ssl.c>
       AllowOverride All
       Require all granted
     </Directory>   
-		<Directory /usr/lib/cgi-bin>
-			SSLOptions +StdEnvVars
-		</Directory>
+    <Directory /usr/lib/cgi-bin>
+      SSLOptions +StdEnvVars
+    </Directory>
   </VirtualHost>
 </IfModule>" > /etc/apache2/sites-available/$domain-ssl.conf
 
